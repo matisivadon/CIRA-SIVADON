@@ -47,9 +47,9 @@ header {
     font-family: 'Fjalla One', sans-serif;
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: end;
     gap: 2rem;
-    padding-left: 1.5rem;
+    padding-right: 1rem;
 }
 
 .navbar ul li a{
@@ -295,10 +295,11 @@ footer a {
 
     .navbar ul {
         justify-content: left;
+        padding-left: 1.5rem;
     }
 }
 
-@media screen and (max-width: 511px) {
+@media screen and (max-width: 518px) {
     .navbar ul {
         display: none;
     }
@@ -316,7 +317,7 @@ footer a {
     }
 }
 
-@media screen and (min-width: 512px) {
+@media screen and (min-width: 519px) {
     .navbar img {
         display: none;
     }

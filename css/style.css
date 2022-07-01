@@ -86,8 +86,6 @@ main {
     width: 30%;
     padding-left: 1.5rem;
     padding-top: 3.5rem;
-    /* background: rgb(191,110,80);
-    background: linear-gradient(180deg, rgba(191,110,80,1) 0%, rgba(242,242,242,1) 20%, rgba(242,242,242,1) 100%); */
 }
 
 .banner img{
@@ -132,25 +130,26 @@ h2 {
     margin-bottom: 12rem;
 }
 
-.card__product img:hover {
-    animation: zoom 1s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
-}
-
-@keyframes zoom {
-	0% {
-		transform: scale(1.2);
-	}
-
-	100% {
-		transform: scale(1);
-	}
-}
-
 .card__product img {
     height: 100%;
     width: 100%;
     border-radius: 3rem;
     margin-bottom: 1rem;
+}
+
+.card__product img:hover {
+    animation: zoom 1s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
+    cursor:pointer; cursor: hand
+}
+
+@keyframes zoom {
+	0% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
 }
 
 .card__product h3 {
@@ -160,7 +159,7 @@ h2 {
 }
 
 .card__product p{
-    font-family: 'Frank Ruhl Libre', serif;
+    font-family: 'Fjalla One', sans-serif;
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 0.5rem;
@@ -174,6 +173,11 @@ h2 {
     border-radius: 10px;
     padding: 1px;
     text-align: center;
+    transition: background-color 1s;
+}
+
+.card__product a:hover {
+    background-color: #a64208;
 }
 
 .register label {

@@ -1,0 +1,471 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Alegreya', serif;
+    background-color: #f2f2f2;
+    color: #0D0D0D;
+    width: 100%;
+}
+
+header {
+    background-color: #BF6E50;
+    height: 5rem;
+    position: sticky;
+    top: 0;
+    border-bottom-right-radius: 1rem;
+}
+
+.navbar {
+    font-size: 1.5rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+}
+
+.navbar__title {
+    font-size: 3.5rem;
+    color: white;
+    padding-left: 1.5rem;
+}
+
+.navbar ul {
+    font-family: 'Fjalla One', sans-serif;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    padding-left: 1.5rem;
+}
+
+.navbar ul li a{
+    color: white;
+}
+
+.navbar ul li a:hover {
+    animation: border 1s forwards;
+}
+
+@keyframes border {
+    0% {
+        font-size: 1.5rem;
+    }
+
+    100% {
+        font-weight: bolder;
+        border-bottom: 2px white solid;
+    }
+}
+
+main {
+    padding-bottom: 50px;
+    margin: 0 auto;
+}
+
+.banner {
+    display: flex;
+}
+
+.banner h1 {
+    font-size: 3.5rem;
+    color: #a64208;
+    width: 30%;
+    padding-left: 1.5rem;
+}
+
+.banner img{
+    height: 30rem;
+    width: 70%;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+span {
+    padding-left: 1.5rem;
+}
+
+.multimedia {
+    margin-top: 5rem;
+    display: flex;
+    width: 100%;
+    height: 30rem;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    justify-content: left;
+    padding-left: 1.5rem;
+    margin: 2rem auto;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 8rem;
+    justify-items: center;
+}
+
+.card__product {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 3rem;
+    box-shadow: 50px 50px 20px -20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 12rem;
+}
+
+.card__product img:hover {
+    animation: zoom 1s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
+}
+
+@keyframes zoom {
+	0% {
+		transform: scale(1.2);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.card__product img {
+    height: 100%;
+    width: 100%;
+    border-radius: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card__product h3 {
+    font-family: 'Alegreya', serif;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.card__product p{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.card__product a {
+    background-color: #BF6E50;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    border-radius: 10px;
+    padding: 1px;
+    text-align: center;
+}
+
+.register label {
+    font-size: 1rem;
+    color: #0D0D0D;
+    padding-left: 1.5rem;
+}
+
+.register input {
+    border: 2px solid black;
+    width: 200px;
+    height: 1.5rem;
+}
+
+.description p {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 1.5rem;
+    text-align: justify;
+    line-height: 1.5;
+    padding: 3rem;
+    }
+
+.form {
+    background-color: #BF6E50;
+    color: white;
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+    width: 30rem;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+}
+
+.form__data label {
+    display: flex;
+    padding: 1rem;
+}
+
+.form__data input {
+    display: flex;
+    border: 1px solid black;
+    width: 80%;
+    height: 2rem;
+}
+
+.form__data textarea {
+    display: flex;
+    border: 1px solid black;
+    width: 80%;
+}
+
+.form__fieldset {
+    margin: 1rem;
+}
+
+.form__genero {
+    margin-top: 1rem;
+}
+
+.form__genero__option {
+    font-family: 'Alegreya', serif;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.form__sub {
+    margin: 1rem;
+}
+
+button {
+    font-family: 'Alegreya', serif;
+    background-color: #BF6E50;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid #0D0D0D;
+}
+
+
+
+footer {
+    font-family: 'Alegreya', serif;
+    font-size: 1.2rem;
+    width: 100%;
+    background-color: #BFBBBA;
+    color: #0D0D0D;
+    border-top: 2px solid #0D0D0D;
+    padding-left: 1rem;
+}
+
+footer h3 {
+    padding-bottom: 1rem;
+}
+
+footer img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+footer a {
+    color: #0D0D0D;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+
+@media screen and (max-width: 670px) {
+    .navbar {
+        grid-template-columns: 3fr;
+    }
+
+    header {
+        height: 7rem;
+    }
+
+    .navbar ul {
+        justify-content: left;
+    }
+}
+
+@media screen and (max-width: 511px) {
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar {
+        grid-template-columns: 0.3fr 0.5fr;
+        padding-right: 20rem;
+    }
+
+    header {
+        height: 5rem;
+    }
+
+    .form {
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 512px) {
+    .navbar span {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .banner{
+        height: 25rem;
+    }
+
+    .banner img {
+        height: 100%;
+    }
+}
+
+
+@media screen and (max-width:930px) {
+
+    .banner {
+        height: 20rem;
+    }
+
+    .banner img {
+        height: 100%;
+    }
+
+    .banner h1 {
+        font-size: 3rem;
+    }
+    
+}
+
+
+@media screen and (max-width: 768px) {
+    .banner{
+        display:inline-block;
+    }
+
+    .banner img {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .banner h1 {
+        width: 100%;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .banner img {
+        height: 25rem;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .banner img {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .banner img {
+        height: 15rem;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .multimedia {
+        height: 25rem;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .multimedia {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width:575px) {
+    .multimedia {
+        height: 15rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .multimedia {
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width:1042px) {
+    .card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:710px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width:390px) {
+    .card__product {
+        height: 15rem;
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .description p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:705px) {
+    .register button {
+        margin-left: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .register input {
+        margin-left: 1.5rem;
+    }
+
+    .register button {
+        margin-left: 0;
+    }
+
+    .form {
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 441px) {
+    .register label {
+        font-size: 0.8rem;
+    }
+
+    .register button {
+        height: 2rem;
+        width: 3rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .register label {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .form {
+        width: 18rem;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .form__fieldset label{
+        display: flex;
+    }
+}

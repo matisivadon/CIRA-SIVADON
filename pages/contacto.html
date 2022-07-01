@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>CONTACTO</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="shortcut icon" href="../Assets/favicon.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <span>🍔</span>
+            <a href="../index.html" class="navbar__title">CIRA</a>   
+            <ul>
+                <li>
+                    <a href="./nuevos.html">NUEVOS</a>
+                </li>
+                <li>
+                    <a href="./second-hand.html">SECOND HAND</a>
+                </li>
+                <li> 
+                    <a href="./nosotros.html">NOSOTROS</a>
+                 </li>
+                 <li>  
+                     <a href="./contacto.html">CONTACTO</a>
+                 </li>
+            </ul>
+        </nav>
+    </header>
+
+    <form action="" class="form">
+        <section>
+
+        <div class="form__data">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre..."/>
+
+            <label for="correo">Email:</label>
+            <input type="email" name="correo" id="correo" placeholder="Ingrese su email..."/>
+
+            <label for="cosulta">Consulta</label>
+            <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Ingrese su consulta ..."></textarea>
+        </div>
+
+        <div class="form__fieldset">
+            <fieldset>
+                <legend>Elija la opción que corresponda</legend>
+                <label for="yacompre">Ya compré</label>
+                <input type="radio" name="tipousuario" id="yacompre"/>
+                <label for="quierocomprar">Quiero comprar</label>
+                <input type="radio" name="tipousuario" id="quierocomprar"/>
+            </fieldset>
+        </div>
+        
+        <div class="form_genero">
+            <label for="genero">Género</label>
+            <select class="form__genero__option" name="genero" id="genero">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
+        </div>
+
+        <div class="form__sub">
+            <input type="checkbox" name="newsletter" id="newsletter"/>
+            <label for="newsletter">¿Desea suscribirse a nuestro Newsletter?
+        </div>
+
+            <button type="submit">Enviar formulario</button>
+            <button type="reset">Limpiar formulario</button>  
+            
+        </section>
+    </form>
+
+    <footer>
+        <h3>Seguinos en</h3>
+        <img src="../Assets/logoinsta.png" alt="Logo de Instagram">
+        <a href="https://www.instagram.com/cira.secondhand/" target="_blank" rel="noopener noreferrer">cira.secondhand</a>
+    </footer>
+    
+</body>
+</html>

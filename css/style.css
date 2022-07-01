@@ -40,7 +40,6 @@ header {
 .navbar img {
     width: 2rem;
     height: 2rem;
-    /* padding-left: 1.5rem; */
 }
 
 .navbar ul {
@@ -85,6 +84,8 @@ main {
     color: #a64208;
     width: 30%;
     padding-left: 1.5rem;
+    background: rgb(191,110,80);
+    background: linear-gradient(180deg, rgba(191,110,80,1) 0%, rgba(242,242,242,1) 20%, rgba(242,242,242,1) 100%);
 }
 
 .banner img{

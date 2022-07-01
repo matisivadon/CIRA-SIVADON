@@ -37,6 +37,12 @@ header {
     padding-left: 1.5rem;
 }
 
+.navbar img {
+    width: 2rem;
+    height: 2rem;
+    /* padding-left: 1.5rem; */
+}
+
 .navbar ul {
     font-family: 'Fjalla One', sans-serif;
     display: flex;
@@ -291,8 +297,7 @@ footer a {
     }
 
     .navbar {
-        grid-template-columns: 0.3fr 0.5fr;
-        padding-right: 20rem;
+        padding-left: 1.5rem;
     }
 
     header {
@@ -305,7 +310,7 @@ footer a {
 }
 
 @media screen and (min-width: 512px) {
-    .navbar span {
+    .navbar img {
         display: none;
     }
 }

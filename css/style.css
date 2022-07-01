@@ -14,12 +14,13 @@ body {
 }
 
 header {
-    background-color: #BF6E50;
     height: 5rem;
     position: sticky;
     top: 0;
     border-bottom-right-radius: 1rem;
     z-index: 10;
+    background: rgb(191,110,80);
+    background: linear-gradient(90deg, rgba(191,110,80,1) 60%, rgba(186,111,111,1) 100%);
 }
 
 .navbar {
@@ -84,8 +85,9 @@ main {
     color: #a64208;
     width: 30%;
     padding-left: 1.5rem;
-    background: rgb(191,110,80);
-    background: linear-gradient(180deg, rgba(191,110,80,1) 0%, rgba(242,242,242,1) 20%, rgba(242,242,242,1) 100%);
+    padding-top: 3.5rem;
+    /* background: rgb(191,110,80);
+    background: linear-gradient(180deg, rgba(191,110,80,1) 0%, rgba(242,242,242,1) 20%, rgba(242,242,242,1) 100%); */
 }
 
 .banner img{

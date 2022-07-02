@@ -253,9 +253,12 @@ button {
     padding: 0.5rem;
     border-radius: 10px;
     border: 2px solid #0D0D0D;
+    transition: background-color 1s;
 }
 
-
+button:hover {
+    background-color: #a64208;
+}
 
 footer {
     font-family: 'Alegreya', serif;

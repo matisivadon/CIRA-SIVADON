@@ -95,10 +95,6 @@ main {
     border-top-right-radius: 2rem;
 }
 
-span {
-    padding-left: 1.5rem;
-}
-
 .multimedia {
     margin-top: 5rem;
     display: flex;

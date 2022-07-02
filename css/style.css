@@ -282,11 +282,12 @@ footer img {
 footer a {
     color: #0D0D0D;
     font-family: 'Fjalla One', sans-serif;
-    transition: font-size 1s;
+    transition: font-size 1s, color 1s;
 }
 
 footer a:hover {
     font-size: 1.5rem;
+    color: #a64208;
 }
 
 

@@ -202,7 +202,8 @@ h2 {
     }
 
 .form {
-    background-color: #BF6E50;
+    background: rgb(191,110,80);
+    background: linear-gradient(180deg, rgba(191,110,80,1) 60%, rgba(186,111,111,1) 100%);
     color: white;
     font-family: 'Alegreya', serif;
     font-weight: bold;

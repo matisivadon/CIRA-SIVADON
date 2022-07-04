@@ -8,21 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>CIRA</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Assets/favicon.png" type="image/x-icon"/>
     
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> 
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> 
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet"/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/> 
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css"/>
 
 </head>
 
@@ -31,8 +35,18 @@
     <header>
         <nav class="navbar">
     
-            <div>
-            <img src="./Assets/menu.png" alt="Menú Hamburgesa">
+            <div class="navbar__menu">
+            
+            <div class="dropdown">
+            <img class="btn btn-secondary dropdown-toggle card bg-transparent mb-0 p-0" style="width: 2rem; height: 2rem;" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" src="./Assets/menu.png" alt="Menú Hamburguesa">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" href="./pages/nuevos.html"></a>NUEVOS</li>
+                <li><a class="dropdown-item" href="./pages/second-hand.html"></a>SECOND HAND</li>
+                <li><a class="dropdown-item" href="./pages/nosotros.html"></a>NOSOTROS</li>
+                <li><a class="dropdown-item" href="./pages/contacto.html"></a>CONTACTO</li>
+            </ul>
+            </div>
+
             <a href="./index.html" class="navbar__title">CIRA</a>
             </div>
 

@@ -36,12 +36,28 @@ header {
     font-size: 3.5rem;
     color: white;
     padding-left: 1.5rem;
+    text-decoration: none;
 }
 
-.navbar img {
+.navbar__menu {
+    display: flex;
+}
+
+/* .navbar__menu a {
+    transition: color 1s;
+    font-size: larger 1s;
+}
+
+.navbar__menu a:hover {
+    color: white;
+} */
+
+/* .navbar img {
     width: 2rem;
     height: 2rem;
-}
+} */
+
+
 
 .navbar ul {
     font-family: 'Fjalla One', sans-serif;
@@ -50,10 +66,12 @@ header {
     justify-content: end;
     gap: 2rem;
     padding-right: 1rem;
+    padding-top: 1rem;
 }
 
 .navbar ul li a{
     color: white;
+    text-decoration: none;
 }
 
 .navbar ul li a:hover {
@@ -291,18 +309,19 @@ footer a:hover {
 }
 
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 700px) {
     .navbar {
         grid-template-columns: 3fr;
     }
 
     header {
-        height: 7rem;
+        height: 8rem;
     }
 
     .navbar ul {
         justify-content: left;
         padding-left: 1.5rem;
+        padding-top: 0rem;
     }
 }
 
@@ -322,10 +341,14 @@ footer a:hover {
     .form {
         width: 20rem;
     }
+
+    .dropdown {
+        padding-top: 1.5rem;
+    }
 }
 
 @media screen and (min-width: 519px) {
-    .navbar img {
+    .dropdown {
         display: none;
     }
 }
@@ -361,6 +384,7 @@ footer a:hover {
 @media screen and (max-width: 768px) {
     .banner{
         display:inline-block;
+        margin-bottom: 10rem;
     }
 
     .banner img {
@@ -375,6 +399,10 @@ footer a:hover {
 }
 
 @media screen and (max-width:700px) {
+    .banner {
+        margin-bottom: 13rem;
+    }
+
     .banner img {
         height: 25rem;
     }

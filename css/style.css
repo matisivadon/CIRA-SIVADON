@@ -217,6 +217,7 @@ h2 {
     text-align: justify;
     line-height: 1.5;
     padding: 3rem;
+    margin-bottom: 7rem;
     }
 
 .form {
@@ -283,17 +284,18 @@ button:hover {
 }
 
 footer {
-    font-family: 'Alegreya', serif;
-    font-size: 1.2rem;
+    font-family:  'Fjalla One', sans-serif;
     width: 100%;
     background-color: #BFBBBA;
     color: #0D0D0D;
     border-top: 2px solid #0D0D0D;
     padding-left: 1rem;
+    padding-top: 0.5rem;
 }
 
 footer h3 {
     padding-bottom: 1rem;
+    font-size: 1.7rem;
 }
 
 footer img {
@@ -302,8 +304,8 @@ footer img {
 }
 
 footer a {
+    font-size: 1.2rem;
     color: #0D0D0D;
-    font-family: 'Fjalla One', sans-serif;
     transition: font-size 1s, color 1s;
 }
 
@@ -312,6 +314,19 @@ footer a:hover {
     color: #a64208;
 }
 
+footer h4 {
+    font-size: 1.2rem;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.footer__paid a {
+    display: flex;
+    justify-content: start;
+}
 
 @media screen and (max-width: 700px) {
     .navbar {
@@ -468,6 +483,14 @@ footer a:hover {
 @media screen and (max-width:425px) {
     .description p {
         font-size: 1rem;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__paid {
+        margin-top: 1.5rem;
     }
 }
 

@@ -113,8 +113,8 @@ main {
 }
 
 .carousel-item {
-    width: 40rem;
-    height: 40rem;
+    width: 35rem;
+    height: 35rem;
 }
 
 .carousel-item img {
@@ -213,11 +213,11 @@ h2 {
 
 .description p {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 1.5rem;
+    font-size: 3rem;
     text-align: justify;
     line-height: 1.5;
     padding: 3rem;
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
     }
 
 .form {
@@ -283,50 +283,61 @@ button:hover {
     background-color: #a64208;
 }
 
-footer {
+.footer__grid {
     font-family:  'Fjalla One', sans-serif;
     width: 100%;
+    height: 100%;
     background-color: #BFBBBA;
     color: #0D0D0D;
     border-top: 2px solid #0D0D0D;
     padding-left: 1rem;
     padding-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
 }
 
-footer h3 {
-    padding-bottom: 1rem;
-    font-size: 1.7rem;
+.footer__grid-insta h3 {
+    font-size: 1.8rem;
 }
 
-footer img {
+.footer__grid-insta img {
     width: 1.5rem;
     height: 1.5rem;
 }
 
-footer a {
+.footer__grid-insta a {
     font-size: 1.2rem;
     color: #0D0D0D;
+    text-decoration: none;
     transition: font-size 1s, color 1s;
 }
 
-footer a:hover {
+.footer__grid-insta a:hover {
     font-size: 1.5rem;
     color: #a64208;
 }
 
-footer h4 {
+
+.footer__grid-paid h3 {
+    font-size: 1.8rem;
+}
+
+.footer__grid-paid h4 {
     font-size: 1.2rem;
 }
 
-.footer__grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.footer__grid-wsp {
+    position: fixed;
+    bottom: 3rem;
+    right: 0.5rem;
+    z-index: 20;
 }
 
-.footer__paid a {
-    display: flex;
-    justify-content: start;
+.footer__grid-wsp img {
+    width: 3rem;
+    height: 3rem;
 }
+
 
 @media screen and (max-width: 700px) {
     .navbar {
@@ -480,16 +491,36 @@ footer h4 {
     }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:1440px) {
     .description p {
-        font-size: 1rem;
+        font-size: 2.5rem;
+        margin-bottom: 5rem;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .description p {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .description p {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+
+    .description p {
+        font-size: 1.2rem;
     }
 
     .footer__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
     }
 
-    .footer__paid {
+    .footer__grid-paid {
         margin-top: 1.5rem;
     }
 }

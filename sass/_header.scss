@@ -1,0 +1,57 @@
+header {
+    height: 5rem;
+    position: sticky;
+    top: 0;
+    border-bottom-right-radius: 1rem;
+    z-index: 10;
+    background: $colorGradiente;
+}
+
+.navbar {
+    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    &__menu {
+        display: flex;
+
+        &-dropdown ul {
+            color: white;
+            background-color: $btColor;
+        }
+        
+    &-title {
+        font-size: 3.5rem;
+        color: white;
+        padding-left: 1.5rem;
+        text-decoration: none;
+
+        &:hover {
+            color: white;
+            }
+        }
+    }
+    &__pages ul {
+            font-family: $navLetter;
+            display: flex;
+            justify-content: end;
+            gap: 2rem;
+            align-items: baseline;
+            padding-right: 1rem;
+            padding-top: 1rem;
+
+            li a {
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s;
+
+                &:hover {
+                    border-bottom: 2px white solid;
+                }
+
+                &:active {
+                    font-size: 1.3rem;
+                }
+            }
+    }    
+}

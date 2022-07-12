@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none; }
+
+body {
+  font-family: "Alegreya", serif;
+  background-color: #f2f2f2;
+  color: #0D0D0D;
+  width: 100%; }
+
+h2 {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  background-color: #BF6E50;
+  color: white;
+  border: 1.5px #BF6E50 solid; }
+
+button {
+  font-family: 'Alegreya', serif;
+  background-color: #BF6E50;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 2px solid #0D0D0D;
+  transition: background-color 1s; }
+  button:hover {
+    background-color: #a64208; }
+
+header {
+  height: 5rem;
+  position: sticky;
+  top: 0;
+  border-bottom-right-radius: 1rem;
+  z-index: 10;
+  background: linear-gradient(90deg, #bf6e50 60%, #ba6f6f 100%); }
+
+.navbar {
+  font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr; }
+  .navbar__menu {
+    display: flex; }
+    .navbar__menu-dropdown ul {
+      color: white;
+      background-color: #BF6E50; }
+    .navbar__menu-title {
+      font-size: 3.5rem;
+      color: white;
+      padding-left: 1.5rem;
+      text-decoration: none; }
+      .navbar__menu-title:hover {
+        color: white; }
+  .navbar__pages ul {
+    font-family: "Fjalla One", sans-serif;
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+    align-items: baseline;
+    padding-right: 1rem;
+    padding-top: 1rem; }
+    .navbar__pages ul li a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s; }
+      .navbar__pages ul li a:hover {
+        border-bottom: 2px white solid; }
+      .navbar__pages ul li a:active {
+        font-size: 1.3rem; }
+
+main {
+  padding-bottom: 50px;
+  margin: 0 auto; }
+
+.banner {
+  display: flex; }
+  .banner h1 {
+    font-size: 3.5rem;
+    color: #a64208;
+    width: 30%;
+    padding-left: 1.5rem;
+    padding-top: 3.5rem; }
+  .banner img {
+    height: 30rem;
+    width: 70%;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem; }
+
+.carousel {
+  margin: 6rem auto;
+  display: flex; }
+  .carousel-item {
+    width: 35rem;
+    height: 35rem; }
+    .carousel-item img {
+      width: 100%;
+      height: 100%; }
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  justify-items: center;
+  background-color: #f2f2f2;
+  border-style: hidden; }
+  .card__product {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 3rem;
+    box-shadow: 50px 50px 20px -20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 12rem; }
+    .card__product img {
+      height: 100%;
+      width: 100%;
+      border-radius: 3rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s; }
+      .card__product img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        cursor: hand; }
+    .card__product h3 {
+      font-family: "Alegreya", serif;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem; }
+    .card__product p {
+      font-family: "Fjalla One", sans-serif;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 0.5rem; }
+    .card__product a {
+      background-color: #BF6E50;
+      color: white;
+      display: inline-block;
+      width: 100%;
+      border-radius: 10px;
+      padding: 1px;
+      text-align: center;
+      transition: background-color 1s;
+      text-decoration: none; }
+      .card__product a:hover {
+        background-color: #a64208; }
+
+.register label {
+  font-size: 1rem;
+  color: #0D0D0D;
+  padding-left: 1.5rem; }
+
+.register input {
+  border: 2px solid black;
+  width: 200px;
+  height: 1.5rem; }
+
+.footer__grid {
+  font-family: "Fjalla One", sans-serif;
+  background-color: #BFBBBA;
+  color: #0D0D0D;
+  border-top: 2px solid #0D0D0D;
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr; }
+  .footer__grid-insta h3 {
+    font-size: 1.8rem; }
+  .footer__grid-insta img {
+    width: 1.5rem;
+    height: 1.5rem; }
+  .footer__grid-insta a {
+    font-size: 1.2rem;
+    color: #0D0D0D;
+    text-decoration: none;
+    transition: all 1s; }
+    .footer__grid-insta a:hover {
+      font-size: 1.5rem;
+      color: #a64208; }
+  .footer__grid-paid h3 {
+    font-size: 1.8rem; }
+  .footer__grid-paid h4 {
+    font-size: 1.2rem; }
+  .footer__grid-wsp {
+    position: fixed;
+    bottom: 3rem;
+    right: 0.5rem;
+    z-index: 20; }
+    .footer__grid-wsp img {
+      width: 3rem;
+      height: 3rem; }
+
+.description p {
+  font-family: "Frank Ruhl Libre", serif;
+  font-size: 3rem;
+  text-align: justify;
+  line-height: 1.5;
+  padding: 3rem;
+  margin-bottom: 3rem; }
+
+.form {
+  background: linear-gradient(180deg, #bf6e50 60%, #ba6f6f 100%);
+  color: white;
+  font-family: "Alegreya", serif;
+  font-weight: bold;
+  width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  border-radius: 3rem; }
+  .form__data label {
+    display: flex;
+    padding: 1rem; }
+  .form__data input {
+    border: 1px solid black;
+    width: 80%;
+    height: 2rem; }
+  .form__data textarea {
+    display: flex;
+    border: 1px solid black;
+    width: 80%; }
+  .form__fieldset {
+    margin: 1rem; }
+  .form__genero {
+    margin: 1rem; }
+    .form__genero-option {
+      font-family: "Alegreya", serif;
+      color: white;
+      background-color: #BF6E50;
+      padding: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid black; }
+  .form__sub {
+    margin: 1rem; }
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    grid-template-columns: 3fr; }
+  header {
+    height: 8rem; }
+  .navbar__pages ul {
+    justify-content: left;
+    padding-left: 1.5rem;
+    padding-top: 0rem; } }
+
+@media screen and (max-width: 518px) {
+  .navbar__pages ul {
+    display: none; }
+  .navbar {
+    padding-left: 1.5rem; }
+  header {
+    height: 5rem; }
+  .form {
+    width: 20rem; }
+  .navbar__menu-dropdown {
+    margin-top: 2rem; } }
+
+@media screen and (min-width: 519px) {
+  .navbar__menu-dropdown {
+    display: none; } }
+
+@media screen and (max-width: 1024px) {
+  .banner {
+    height: 25rem; }
+  .banner img {
+    height: 100%; } }
+
+@media screen and (max-width: 930px) {
+  .banner {
+    height: 20rem; }
+  .banner img {
+    height: 100%; }
+  .banner h1 {
+    font-size: 3rem; } }
+
+@media screen and (max-width: 768px) {
+  .banner {
+    display: inline-block;
+    margin-bottom: 10rem; }
+  .banner img {
+    display: inline-block;
+    width: 100%; }
+  .banner h1 {
+    width: 100%;
+    display: inline-block; } }
+
+@media screen and (max-width: 700px) {
+  .banner {
+    margin-bottom: 13rem; }
+  .banner img {
+    height: 25rem; } }
+
+@media screen and (max-width: 500px) {
+  .banner img {
+    height: 20rem; } }
+
+@media screen and (max-width: 375px) {
+  .banner img {
+    height: 15rem; } }
+
+@media screen and (max-width: 750px) {
+  .carousel-item {
+    width: 30rem;
+    height: 30rem; } }
+
+@media screen and (max-width: 518px) {
+  .carousel-item {
+    width: 20rem;
+    height: 20rem; } }
+
+@media screen and (max-width: 375px) {
+  .carousel-item {
+    width: 15rem;
+    height: 15rem; } }
+
+@media screen and (max-width: 1042px) {
+  .card {
+    grid-template-columns: repeat(2, 1fr); } }
+
+@media screen and (max-width: 710px) {
+  .card {
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 390px) {
+  .card__product {
+    height: 15rem;
+    width: 15rem; } }
+
+@media screen and (max-width: 1440px) {
+  .description p {
+    font-size: 2.5rem;
+    margin-bottom: 5rem; } }
+
+@media screen and (max-width: 1024px) {
+  .description p {
+    font-size: 2rem; } }
+
+@media screen and (max-width: 768px) {
+  .description p {
+    font-size: 1.5rem; } }
+
+@media screen and (max-width: 425px) {
+  .description p {
+    font-size: 1.2rem; }
+  .footer__grid {
+    grid-template-columns: 2fr; }
+  .footer__grid-paid {
+    margin-top: 1.5rem; } }
+
+@media screen and (max-width: 705px) {
+  .register button {
+    margin-left: 1.5rem; } }
+
+@media screen and (max-width: 645px) {
+  .register input {
+    margin-left: 1.5rem; }
+  .register button {
+    margin-left: 0; }
+  .form {
+    width: 25rem; } }
+
+@media screen and (max-width: 441px) {
+  .register label {
+    font-size: 0.8rem; }
+  .register button {
+    height: 2rem;
+    width: 3rem;
+    font-size: 0.7rem; } }
+
+@media screen and (max-width: 359px) {
+  .register label {
+    font-size: 0.7rem; } }
+
+@media screen and (max-width: 440px) {
+  .form {
+    width: 18rem; } }
+
+@media screen and (max-width: 440px) {
+  .form__fieldset label {
+    display: flex; } }

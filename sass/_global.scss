@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: $titlesLetter;
+    background-color: $bgColor;
+    color: #0D0D0D;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+    background-color: $btColor;
+    color: white;
+    border: 1.5px $btColor solid;
+}
+
+button {
+    font-family: 'Alegreya', serif;
+    background-color: $btColor;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid #0D0D0D;
+    transition: background-color 1s;
+
+    &:hover{
+        background-color: $btColorDark;
+    }
+}

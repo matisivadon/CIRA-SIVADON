@@ -19,18 +19,19 @@ header {
             color: white;
             background-color: $btColor;
         }
-        
-    &-title {
-        font-size: 3.5rem;
-        color: white;
-        padding-left: 1.5rem;
-        text-decoration: none;
 
-        &:hover {
+        &-title {
+            font-size: 3.5rem;
             color: white;
+            padding-left: 1.5rem;
+            text-decoration: none;
+
+                &:hover {
+                    color: white;
+                }
             }
-        }
     }
+
     &__pages ul {
             font-family: $navLetter;
             display: flex;
@@ -38,7 +39,7 @@ header {
             gap: 2rem;
             align-items: baseline;
             padding-right: 1rem;
-            padding-top: 1rem;
+            margin-top: 1.5rem;
 
             li a {
                 color: white;

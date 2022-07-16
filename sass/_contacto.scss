@@ -48,4 +48,8 @@
     &__sub {
         margin: 1rem;
     }
+
+    &__btn button {
+        @extend button;
+    }
 }

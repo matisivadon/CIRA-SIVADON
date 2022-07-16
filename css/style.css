@@ -15,20 +15,19 @@ h2 {
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
-  background-color: #BF6E50;
-  color: white;
-  border: 1.5px #BF6E50 solid; }
+  margin-bottom: 2rem;
+  color: black; }
 
-button {
+button, .card__product a, .form__btn button {
   font-family: 'Alegreya', serif;
+  font-size: 1.2rem;
   background-color: #BF6E50;
   color: white;
-  padding: 0.5rem;
+  padding: 1px;
   border-radius: 10px;
   border: 2px solid #0D0D0D;
   transition: background-color 1s; }
-  button:hover {
+  button:hover, .card__product a:hover {
     background-color: #a64208; }
 
 header {
@@ -62,7 +61,7 @@ header {
     gap: 2rem;
     align-items: baseline;
     padding-right: 1rem;
-    padding-top: 1rem; }
+    margin-top: 1.5rem; }
     .navbar__pages ul li a {
       color: white;
       text-decoration: none;
@@ -135,17 +134,11 @@ main {
       text-align: center;
       margin-bottom: 0.5rem; }
     .card__product a {
-      background-color: #BF6E50;
-      color: white;
       display: inline-block;
       width: 100%;
-      border-radius: 10px;
-      padding: 1px;
       text-align: center;
-      transition: background-color 1s;
-      text-decoration: none; }
-      .card__product a:hover {
-        background-color: #a64208; }
+      text-decoration: none;
+      border: none; }
 
 .register label {
   font-size: 1rem;
@@ -252,9 +245,7 @@ main {
   header {
     height: 5rem; }
   .form {
-    width: 20rem; }
-  .navbar__menu-dropdown {
-    margin-top: 2rem; } }
+    width: 20rem; } }
 
 @media screen and (min-width: 519px) {
   .navbar__menu-dropdown {
@@ -349,13 +340,13 @@ main {
     margin-top: 1.5rem; } }
 
 @media screen and (max-width: 705px) {
-  .register button {
+  .register button, .register .card__product a, .card__product .register a {
     margin-left: 1.5rem; } }
 
 @media screen and (max-width: 645px) {
   .register input {
     margin-left: 1.5rem; }
-  .register button {
+  .register button, .register .card__product a, .card__product .register a {
     margin-left: 0; }
   .form {
     width: 25rem; } }
@@ -363,7 +354,7 @@ main {
 @media screen and (max-width: 441px) {
   .register label {
     font-size: 0.8rem; }
-  .register button {
+  .register button, .register .card__product a, .card__product .register a {
     height: 2rem;
     width: 3rem;
     font-size: 0.7rem; } }

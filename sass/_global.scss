@@ -17,17 +17,16 @@ h2 {
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
-    margin: 2rem auto;
-    background-color: $btColor;
-    color: white;
-    border: 1.5px $btColor solid;
+    margin-bottom: 2rem;
+    color: black;
 }
 
 button {
     font-family: 'Alegreya', serif;
+    font-size: 1.2rem;
     background-color: $btColor;
     color: white;
-    padding: 0.5rem;
+    padding: 1px;
     border-radius: 10px;
     border: 2px solid #0D0D0D;
     transition: background-color 1s;

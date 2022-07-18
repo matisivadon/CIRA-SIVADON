@@ -23,7 +23,7 @@ main {
 }
 
 .carousel {
-    margin: 6rem auto;
+    margin: 4rem auto;
     display: flex;
 
     &-item {
@@ -36,7 +36,6 @@ main {
         }
     }
 }
-
 
 .card {
     display: grid;
@@ -88,6 +87,7 @@ main {
             text-align: center;
             text-decoration: none;
             border: none;
+            padding: 1px;
         }
     }
 }

@@ -13,12 +13,21 @@ body {
     width: 100%;
 }
 
-h2 {
-    font-size: 1.5rem;
+@mixin subtitle($size, $alineacion, $color) {
+    font-size: $size;
     display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    color: black;
+    justify-content: $alineacion;
+    margin: 2rem 0;
+    color: $color;
+}
+
+.subtitle__principal {
+    @include subtitle (2rem, center, black);
+}
+
+.subtitle__secundario {
+    @include subtitle (3rem, center, $btColorDark);
+    margin-top: 4rem;
 }
 
 button {
@@ -26,12 +35,12 @@ button {
     font-size: 1.2rem;
     background-color: $btColor;
     color: white;
-    padding: 1px;
+    padding: 2px;
     border-radius: 10px;
     border: 2px solid #0D0D0D;
     transition: background-color 1s;
 
-    &:hover{
-        background-color: $btColorDark;
-    }
+        &:hover{
+            background-color: $btColorDark;
+        }
 }

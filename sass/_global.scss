@@ -8,7 +8,7 @@
 
 body {
     font-family: $titlesLetter;
-    background-color: $bgColor;
+    background-color: map-get($map: $colores, $key: bgColor);
     color: #0D0D0D;
     width: 100%;
 }
@@ -26,14 +26,14 @@ body {
 }
 
 .subtitle__secundario {
-    @include subtitle (3rem, center, $btColorDark);
+    @include subtitle (3rem, center, map-get($map: $colores, $key: btColorDark));
     margin-top: 4rem;
 }
 
 button {
     font-family: 'Alegreya', serif;
     font-size: 1.2rem;
-    background-color: $btColor;
+    background-color: map-get($map: $colores, $key: btColor);
     color: white;
     padding: 2px;
     border-radius: 10px;
@@ -41,6 +41,6 @@ button {
     transition: background-color 1s;
 
         &:hover{
-            background-color: $btColorDark;
+            background-color: map-get($map: $colores, $key: btColorDark);
         }
 }

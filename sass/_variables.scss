@@ -1,8 +1,11 @@
-$bgColor: #f2f2f2;
-$colorGradiente: linear-gradient(90deg, rgba(191,110,80,1) 60%, rgba(186,111,111,1) 100%);
-$bgFooter: #BFBBBA;
-$btColor: #BF6E50;
-$btColorDark: #a64208;
+$colores:(
+    bgColor: #f2f2f2,
+    colorGradiente: linear-gradient(90deg, rgba(191,110,80,1) 60%, rgba(186,111,111,1) 100%),
+    bgFooter: #BFBBBA,
+    btColor: #BF6E50,
+    btColorDark: #a64208,
+);
+
 $titlesLetter: 'Alegreya', serif;
 $navLetter: 'Fjalla One', sans-serif;
 $pLetter: 'Frank Ruhl Libre', serif;

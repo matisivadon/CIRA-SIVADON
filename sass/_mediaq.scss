@@ -156,10 +156,6 @@
     .description {
         font-size: 1.5rem;
     }
-
-    .img__perfiles {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media screen and (max-width:425px) {
@@ -167,17 +163,7 @@
     .description {
         font-size: 1.2rem;
     }
-
-    .img-ro {
-        width: 15rem;
-        height: 15rem;
-    }
-
-    .img-flor {
-        width: 15rem;
-        height: 15rem;
-    }
-
+    
     .footer__grid {
         grid-template-columns: 2fr;
     }

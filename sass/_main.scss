@@ -8,7 +8,7 @@ main {
 
     & h1 {
         font-size: 3.5rem;
-        color: $btColorDark;
+        color: map-get($map: $colores, $key: btColorDark);
         width: 30%;
         padding-left: 1.5rem;
         padding-top: 3.5rem;
@@ -43,7 +43,7 @@ main {
     gap: 1rem;
     margin-bottom: 3rem;
     justify-items: center;
-    background-color:$bgColor;
+    background-color: map-get($map: $colores, $key: bgColor);
     border-style: hidden;
 
     &__product {

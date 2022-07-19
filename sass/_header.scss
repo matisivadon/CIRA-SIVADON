@@ -4,7 +4,7 @@ header {
     top: 0;
     border-bottom-right-radius: 1rem;
     z-index: 10;
-    background: $colorGradiente;
+    background: map-get($map: $colores, $key: colorGradiente);
 }
 
 .navbar {
@@ -17,7 +17,7 @@ header {
 
         &-dropdown ul {
             color: white;
-            background-color: $btColor;
+            background-color: map-get($map: $colores, $key: btColor);
         }
 
         &-title {

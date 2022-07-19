@@ -6,24 +6,3 @@
     padding: 3rem;
     margin-bottom: 3rem;
     }
-
-.img__perfiles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    justify-items: center;
-}
-
-$imagenesPerfiles: (
-    ro: 2px solid $btColor,
-    flor: 2px solid $btColor, 
-);
-
-@each $nombre, $border in $imagenesPerfiles {
-    .img-#{$nombre} {
-        width: 25rem;
-        height: 25rem;
-        border: $border;
-        border-radius: 10px;
-    }
-}

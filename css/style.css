@@ -177,10 +177,9 @@ main {
     font-size: 1.2rem;
     color: #0D0D0D;
     text-decoration: none;
-    transition: all 1s; }
-    .footer__grid-insta a:hover {
-      font-size: 1.5rem;
-      color: #a64208; }
+    transition: all 0.3s; }
+    .footer__grid-insta a:active {
+      font-size: 1.3rem; }
   .footer__grid-paid h3 {
     font-size: 1.8rem; }
   .footer__grid-paid h4 {
@@ -201,24 +200,6 @@ main {
   line-height: 1.5;
   padding: 3rem;
   margin-bottom: 3rem; }
-
-.img__perfiles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  justify-items: center; }
-
-.img-ro {
-  width: 25rem;
-  height: 25rem;
-  border: 2px solid #BF6E50;
-  border-radius: 10px; }
-
-.img-flor {
-  width: 25rem;
-  height: 25rem;
-  border: 2px solid #BF6E50;
-  border-radius: 10px; }
 
 .form {
   background: linear-gradient(180deg, #bf6e50 60%, #ba6f6f 100%);
@@ -351,19 +332,11 @@ main {
 
 @media screen and (max-width: 900px) {
   .description {
-    font-size: 1.5rem; }
-  .img__perfiles {
-    grid-template-columns: 1fr; } }
+    font-size: 1.5rem; } }
 
 @media screen and (max-width: 425px) {
   .description {
     font-size: 1.2rem; }
-  .img-ro {
-    width: 15rem;
-    height: 15rem; }
-  .img-flor {
-    width: 15rem;
-    height: 15rem; }
   .footer__grid {
     grid-template-columns: 2fr; }
   .footer__grid-paid {

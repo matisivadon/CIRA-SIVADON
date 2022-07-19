@@ -26,7 +26,7 @@ body {
 }
 
 .subtitle__secundario {
-    @include subtitle (3rem, center, map-get($map: $colores, $key: btColorDark));
+    @include subtitle (2.3rem, center, map-get($map: $colores, $key: btColorDark));
     margin-top: 4rem;
 }
 

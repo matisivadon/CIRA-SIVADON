@@ -19,7 +19,7 @@ body {
   color: black; }
 
 .subtitle__secundario {
-  font-size: 3rem;
+  font-size: 2.3rem;
   display: flex;
   justify-content: center;
   margin: 2rem 0;
@@ -168,7 +168,7 @@ main {
   padding-top: 0.5rem;
   display: grid;
   grid-template-columns: 2fr 2fr 1fr; }
-  .footer__grid-insta h3 {
+  .footer__grid-insta h4 {
     font-size: 1.8rem; }
   .footer__grid-insta img {
     width: 1.5rem;
@@ -180,9 +180,10 @@ main {
     transition: all 0.3s; }
     .footer__grid-insta a:active {
       font-size: 1.3rem; }
-  .footer__grid-paid h3 {
-    font-size: 1.8rem; }
   .footer__grid-paid h4 {
+    font-size: 1.8rem; }
+  .footer__grid-paid span {
+    display: flex;
     font-size: 1.2rem; }
   .footer__grid-wsp {
     position: fixed;
@@ -326,7 +327,13 @@ main {
     height: 15rem;
     width: 15rem; } }
 
+@media screen and (max-width: 600px) {
+  .subtitle__principal {
+    font-size: 1.5rem; } }
+
 @media screen and (max-width: 425px) {
+  .subtitle__principal {
+    font-size: 1rem; }
   .subtitle__secundario {
     font-size: 1.5rem; } }
 

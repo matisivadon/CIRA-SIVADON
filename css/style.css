@@ -37,6 +37,8 @@ button, .card__product a, .form__btn button {
   transition: background-color 1s; }
   button:hover, .card__product a:hover {
     background-color: #a64208; }
+  button:active, .card__product a:active {
+    font-size: 1.1rem; }
 
 header {
   height: 5rem;
@@ -99,9 +101,10 @@ main {
 
 .carousel {
   margin: 4rem auto;
-  display: flex; }
+  display: flex;
+  width: 35rem; }
   .carousel-item {
-    width: 35rem;
+    width: 100%;
     height: 35rem; }
     .carousel-item img {
       width: 100%;
@@ -146,7 +149,7 @@ main {
       width: 100%;
       text-align: center;
       text-decoration: none;
-      border: none;
+      border: 3px outset #BF6E50;
       padding: 1px; }
 
 .register label {
@@ -246,6 +249,10 @@ main {
     padding-left: 1.5rem;
     margin-top: 0rem; } }
 
+@media screen and (min-width: 519px) {
+  .navbar__menu-dropdown {
+    display: none; } }
+
 @media screen and (max-width: 518px) {
   .navbar__pages ul {
     display: none; }
@@ -255,10 +262,6 @@ main {
     height: 5rem; }
   .form {
     width: 20rem; } }
-
-@media screen and (min-width: 519px) {
-  .navbar__menu-dropdown {
-    display: none; } }
 
 @media screen and (max-width: 1024px) {
   .banner {
@@ -299,20 +302,23 @@ main {
   .banner img {
     height: 15rem; } }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 570px) {
+  .carousel {
+    width: 100%; }
   .carousel-item {
-    width: 30rem;
+    height: 35rem; } }
+
+@media screen and (max-width: 500px) {
+  .carousel-item {
     height: 30rem; } }
 
-@media screen and (max-width: 518px) {
+@media screen and (max-width: 425px) {
   .carousel-item {
-    width: 20rem;
-    height: 20rem; } }
+    height: 25rem; } }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
   .carousel-item {
-    width: 15rem;
-    height: 15rem; } }
+    height: 20rem; } }
 
 @media screen and (max-width: 1042px) {
   .card {
@@ -322,10 +328,19 @@ main {
   .card {
     grid-template-columns: 1fr; } }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 425px) {
   .card__product {
-    height: 15rem;
-    width: 15rem; } }
+    height: 25rem;
+    width: 90%; } }
+
+@media screen and (max-width: 375px) {
+  .card__product {
+    height: 20rem; } }
+
+@media screen and (max-width: 320px) {
+  .card__product {
+    height: 18rem;
+    width: 90%; } }
 
 @media screen and (max-width: 600px) {
   .subtitle__principal {

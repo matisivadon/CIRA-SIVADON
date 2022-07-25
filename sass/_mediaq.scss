@@ -1,3 +1,5 @@
+// Breakpoints del header
+
 @media screen and (max-width: 700px) {
     .navbar {
         grid-template-columns: 3fr;
@@ -11,6 +13,12 @@
         justify-content: left;
         padding-left: 1.5rem;
         margin-top: 0rem;
+    }
+}
+
+@media screen and (min-width: 519px) {
+    .navbar__menu-dropdown {
+        display: none;
     }
 }
 
@@ -32,11 +40,7 @@
     }
 }
 
-@media screen and (min-width: 519px) {
-    .navbar__menu-dropdown {
-        display: none;
-    }
-}
+// Breakpoints del main del index
 
 @media screen and (max-width: 1024px) {
     .banner{
@@ -47,7 +51,6 @@
         height: 100%;
     }
 }
-
 
 @media screen and (max-width:930px) {
 
@@ -64,7 +67,6 @@
     }
     
 }
-
 
 @media screen and (max-width: 768px) {
     .banner{
@@ -105,25 +107,31 @@
     }
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:570px) {
+
+    .carousel {
+        width: 100%;
+    }
     .carousel-item {
-        width: 30rem;
+        height: 35rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-item {
         height: 30rem;
     }
 }
 
-
-@media screen and (max-width: 518px) {
+@media screen and (max-width: 425px) {
     .carousel-item {
-        width: 20rem;
-        height: 20rem;
+        height: 25rem;
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
     .carousel-item {
-        width: 15rem;
-        height: 15rem;
+        height: 20rem;
     }
 }
 
@@ -139,10 +147,23 @@
     }
 }
 
-@media screen and (max-width:390px) {
+@media screen and (max-width:425px) {
     .card__product {
-        height: 15rem;
-        width: 15rem;
+        height: 25rem;
+        width: 90%;
+    }
+}    
+
+@media screen and (max-width:375px) {
+    .card__product {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .card__product {
+        height: 18rem;
+        width: 90%;
     }
 }
 
@@ -163,11 +184,15 @@
     }
 }
 
+// Breakpoints del main en la página nosotros
+
 @media screen and (max-width:900px) {
     .description {
         font-size: 1.5rem;
     }
 }
+
+// Breakpoints del main de página nosotros y footer
 
 @media screen and (max-width:425px) {
 
@@ -203,6 +228,8 @@
         width: 25rem;
     }
 }
+
+// Breakpoints del main de la página contacto
 
 @media screen and (max-width: 441px) {
     .register label {

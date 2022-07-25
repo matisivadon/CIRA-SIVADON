@@ -43,4 +43,8 @@ button {
         &:hover{
             background-color: map-get($map: $colores, $key: btColorDark);
         }
+
+        &:active {
+            font-size: 1.1rem;
+        }
 }

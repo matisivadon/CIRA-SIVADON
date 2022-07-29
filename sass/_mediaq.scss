@@ -1,42 +1,17 @@
 // Breakpoints del header
-
-@media screen and (max-width: 700px) {
-    .navbar {
-        grid-template-columns: 3fr;
-    }
-
-    header {
-        height: 8rem;
-    }
-
-    .navbar__pages ul {
-        justify-content: left;
-        padding-left: 1.5rem;
-        margin-top: 0rem;
-    }
-}
-
-@media screen and (min-width: 519px) {
+@media screen and (min-width: 786px) {
     .navbar__menu-dropdown {
         display: none;
     }
 }
 
-@media screen and (max-width: 518px) {
+@media screen and (max-width: 785px) {
     .navbar__pages ul {
         display: none;
     }
 
-    .navbar {
-        padding-left: 1.5rem;
-    }
-
-    header {
-        height: 5rem;
-    }
-
-    .form {
-        width: 20rem;
+    .navbar__pages-buy {
+        margin-bottom: 2rem;
     }
 }
 

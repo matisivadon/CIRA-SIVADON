@@ -32,27 +32,32 @@ header {
             }
     }
 
-    &__pages ul {
-            font-family: $navLetter;
-            display: flex;
-            justify-content: end;
-            gap: 2rem;
-            align-items: baseline;
-            padding-right: 1rem;
-            margin-top: 1.5rem;
+    &__pages {
+        display: flex;
+        justify-content: end;
 
-            li a {
-                color: white;
+        & ul {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1.5rem;
+
+            & li a {
                 text-decoration: none;
+                color: white;
+                font-family: $navLetter;
                 transition: all 0.3s;
 
                 &:hover {
                     border-bottom: 2px white solid;
                 }
-
-                &:active {
-                    font-size: 1.3rem;
-                }
             }
+        }
+
+        &-buy img {
+            width: 3rem;
+            height: 3rem;
+            margin: 1rem;
+        }
     }    
+    
 }

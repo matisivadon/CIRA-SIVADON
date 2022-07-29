@@ -40,6 +40,10 @@
             & span {
                 display: flex;
                 font-size: 1.2rem;
+
+                & i {
+                    margin-right: 0.5rem;
+                }
             }
         }
 

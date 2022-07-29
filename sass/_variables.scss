@@ -1,3 +1,4 @@
+// Mapa de colores
 $colores:(
     bgColor: #f2f2f2,
     colorGradiente: linear-gradient(90deg, rgba(191,110,80,1) 60%, rgba(186,111,111,1) 100%),
@@ -6,6 +7,7 @@ $colores:(
     btColorDark: #a64208,
 );
 
+// Tipos de letras
 $titlesLetter: 'Alegreya', serif;
 $navLetter: 'Fjalla One', sans-serif;
 $pLetter: 'Frank Ruhl Libre', serif;

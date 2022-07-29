@@ -78,10 +78,10 @@ header {
         transition: all 0.3s; }
         .navbar__pages ul li a:hover {
           border-bottom: 2px white solid; }
-    .navbar__pages-buy img {
-      width: 3rem;
-      height: 3rem;
-      margin: 1rem; }
+  .navbar__buy img {
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem; }
 
 main {
   padding-bottom: 50px;
@@ -250,7 +250,7 @@ main {
 @media screen and (max-width: 785px) {
   .navbar__pages ul {
     display: none; }
-  .navbar__pages-buy {
+  .navbar__buy {
     margin-bottom: 2rem; } }
 
 @media screen and (max-width: 1024px) {

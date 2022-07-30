@@ -1,8 +1,30 @@
-.description {
-    font-family: $pLetter;
-    font-size: 2rem;
-    text-align: justify;
-    line-height: 1.5;
-    padding: 3rem;
-    margin-bottom: 3rem;
+.us {
+    padding-bottom: 0rem;
+    margin-top: 0rem;
+    width: 100%;
+
+    &__container {
+        background: rgba(0, 0, 0, 0.7) url("../Assets/moda.jpg");
+        background-blend-mode: darken;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 40rem;
+
+        &-sub {
+            @extend .subtitle__secundario;
+            color: white;
+            margin-top: 0rem;
+        }
+
+        &-description {
+            font-family: $pLetter;
+            color: white;
+            font-size: 1.6rem;
+            text-align: justify;
+            line-height: 1.5;
+            margin-top: 20rem;
+            padding: 0 1rem;
+        }
     }
+}

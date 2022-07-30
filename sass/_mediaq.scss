@@ -149,7 +149,6 @@
 }
 
 @media screen and (max-width:425px) {
-
     .subtitle__principal {
         font-size: 1rem;
     }
@@ -161,11 +160,41 @@
 
 // Breakpoints del main en la página nosotros
 
-@media screen and (max-width:900px) {
-    .description {
-        font-size: 1.5rem;
+@media screen and (max-width:805px) { 
+    .us__container {
+        height: 30rem;
+    }
+
+    .us__container-description {
+        font-size: 1.3rem;
+        margin-top: 12rem;
     }
 }
+
+@media screen and (max-width:660px) {    
+    .us__container-description {
+        margin-top: 7rem;
+    }
+}
+
+@media screen and (max-width:500px) {    
+    .us__container-description {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width:425px) {    
+    .us__container {
+        height: 25rem;
+    }
+}
+
+@media screen and (max-width:375px) {    
+    .us__container-description {
+        margin-top: 3rem;
+    }
+}
+
 
 // Breakpoints del main de página nosotros y footer
 

@@ -6,24 +6,29 @@
 }
 
 @media screen and (max-width: 785px) {
-    .navbar__pages ul {
-        display: none;
-    }
+    .navbar__pages {
+    
+        & ul {
+            display: none;
+        }
 
-    .navbar__buy {
-        margin-bottom: 2rem;
+        &-buy {
+        margin-bottom: 2.3rem;
+        }
     }
 }
 
 // Breakpoints del main del index
 
-@media screen and (max-width: 1024px) {
-    .banner{
-        height: 25rem;
-    }
+// Banner y h1
 
-    .banner img {
-        height: 100%;
+@media screen and (max-width: 1024px) {
+    .banner {
+        height: 25rem;
+
+        & img {
+            height: 100%;
+        }
     }
 }
 
@@ -31,64 +36,47 @@
 
     .banner {
         height: 20rem;
-    }
 
-    .banner img {
-        height: 100%;
-    }
-
-    .banner h1 {
-        font-size: 3rem;
-    }
-    
+        & h1 {
+            font-size: 3rem;
+        }
+    } 
 }
 
 @media screen and (max-width: 768px) {
-    .banner{
-        display:inline-block;
-        margin-bottom: 10rem;
-    }
-
-    .banner img {
-        display: inline-block;
-        width: 100%;
-    }
-
-    .banner h1 {
-        width: 100%;
-        display: inline-block;
-    }
-}
-
-@media screen and (max-width:700px) {
     .banner {
-        margin-bottom: 13rem;
-    }
+        display:inline-block;
+        margin-bottom: 8rem;
 
-    .banner img {
-        height: 25rem;
-    }
-}
+        & img {
+            width: 100%;
+        }
 
-@media screen and (max-width:500px) {
-    .banner img {
-        height: 20rem;
+        & h1 {
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            padding-top: 1.5rem;
+        }
     }
 }
 
 @media screen and (max-width:375px) {
-    .banner img {
+    .banner img{
         height: 15rem;
     }
 }
+
+// Carousel
 
 @media screen and (max-width:570px) {
 
     .carousel {
         width: 100%;
-    }
-    .carousel-item {
-        height: 35rem;
+
+        &-item {
+            height: 35rem;
+        }
     }
 }
 
@@ -110,6 +98,26 @@
     }
 }
 
+// Titulos h2
+
+@media screen and (max-width:600px) {
+    .subtitle__principal {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .subtitle__principal {
+        font-size: 1rem;
+    }
+
+    .subtitle__secundario {
+        font-size: 1.5rem;
+    }
+}
+
+// Tarjetas de productos
+
 @media screen and (max-width:1042px) {
     .card {
         grid-template-columns: repeat(2, 1fr);
@@ -120,6 +128,7 @@
     .card {
         grid-template-columns: 1fr;
     }
+
 }
 
 @media screen and (max-width:425px) {
@@ -142,108 +151,32 @@
     }
 }
 
-@media screen and (max-width:600px) {
-    .subtitle__principal {
-        font-size: 1.5rem;
-    }
-}
 
-@media screen and (max-width:425px) {
-    .subtitle__principal {
-        font-size: 1rem;
-    }
+// Botón de registro
 
-    .subtitle__secundario {
-        font-size: 1.5rem;
-    }
-}
-
-// Breakpoints del main en la página nosotros
-
-@media screen and (max-width:805px) { 
-    .us__container {
-        height: 30rem;
-    }
-
-    .us__container-description {
-        font-size: 1.3rem;
-        margin-top: 12rem;
-    }
-}
-
-@media screen and (max-width:660px) {    
-    .us__container-description {
-        margin-top: 7rem;
-    }
-}
-
-@media screen and (max-width:500px) {    
-    .us__container-description {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (max-width:425px) {    
-    .us__container {
-        height: 25rem;
-    }
-}
-
-@media screen and (max-width:375px) {    
-    .us__container-description {
-        margin-top: 3rem;
-    }
-}
-
-
-// Breakpoints del main de página nosotros y footer
-
-@media screen and (max-width:425px) {
-
-    .description {
-        font-size: 1.2rem;
-    }
-    
-    .footer__grid {
-        grid-template-columns: 2fr;
-    }
-
-    .footer__grid-paid {
-        margin-top: 1.5rem;
-    }
-}
-
-@media screen and (max-width:705px) {
+@media screen and (max-width:708px) {
     .register button {
         margin-left: 1.5rem;
     }
 }
 
 @media screen and (max-width: 645px) {
-    .register input {
-        margin-left: 1.5rem;
-    }
+    .register {
 
-    .register button {
-        margin-left: 0;
-    }
+        & input {
+            margin-left: 1.5rem;
+        }
 
-    .form {
-        width: 25rem;
-    }
+        & button {
+            margin-left: 0;
+            font-size: 1rem;
+        }
+    }    
 }
-
-// Breakpoints del main de la página contacto
 
 @media screen and (max-width: 441px) {
     .register label {
         font-size: 0.8rem;
-    }
-
-    .register button {
-        height: 2rem;
-        width: 3rem;
-        font-size: 0.7rem;
     }
 }
 
@@ -253,14 +186,65 @@
     }
 }
 
-@media screen and (max-width:440px) {
+// Breakpoints del main en la página nosotros
+
+@media screen and (max-width:924px) {    
+    .us__container-description {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width:690px) {
+    .us__container {
+        height: 30rem;
+
+        &-description {
+            margin-top: 12rem;
+            font-size: 1rem;
+            padding: 0 3rem;
+        }
+    }
+}    
+
+@media screen and (max-width:475px) {    
+    .us__container {
+        height: 25rem;
+
+        &-description {
+            margin-top: 5rem;
+        }
+    }
+}
+
+@media screen and (max-width:375px) {    
+    .us__container-description {
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
+}
+
+// Breakpoints del main de la página contacto
+
+@media screen and (max-width:645px) {
     .form {
-        width: 18rem;
+        width: 25rem;
     }
 }
 
 @media screen and (max-width:440px) {
-    .form__fieldset label{
-        display: flex;
+    .form {
+        width: 16rem;
+    }
+}
+
+// Breakpoints del footer
+@media screen and (max-width:425px) {
+
+    .footer__grid {
+        grid-template-columns: 2fr;
+
+        &-paid {
+            margin-top: 1.5rem;
+        }
     }
 }

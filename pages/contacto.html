@@ -40,10 +40,10 @@
 <body>
 
     <header class="header">
+
         <nav class="navbar">
     
             <div class="navbar__menu">
-            
             <div class="navbar__menu-dropdown">
             <img class="btn btn-secondary dropdown-toggle card bg-transparent mt-4 p-0" style="width: 3rem; height: 3rem;" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" src="../Assets/menu.png" alt="Menú Hamburguesa">
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -53,7 +53,6 @@
                 <li><a class="dropdown-item" href="./contacto.html"></a>CONTACTO</li>
             </ul>
             </div>
-
             <a href="../index.html" class="navbar__menu-title">CIRA</a>
             </div>
 
@@ -73,61 +72,62 @@
                  </li>
             </ul>
 
-            <div class="navbar__buy">
+            <div class="navbar__pages-buy">
                 <a href=""><img src="../Assets/carrito-de-compras.png" alt="Carrito de compras"></a>
             </div>
-
+            
             </div>
             
         </nav>
+
     </header>
 
-    <form action="" class="form">
-        <section>
+    <main>
 
-        <div class="form__data">
-            <label for="nombre">Nombre completo:</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre..."/>
+        <form action="" class="form">
 
-            <label for="correo">Email:</label>
-            <input type="email" name="correo" id="correo" placeholder="Ingrese su email..."/>
+            <div class="form__data">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre..."/>
 
-            <label for="cosulta">Consulta</label>
-            <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Ingrese su consulta ..."></textarea>
-        </div>
+                <label for="correo">Email:</label>
+                <input type="email" name="correo" id="correo" placeholder="Ingrese su email..."/>
 
-        <div class="form__fieldset">
-            <fieldset>
-                <legend>Elija la opción que corresponda</legend>
-                <label for="yacompre">Ya compré</label>
-                <input type="radio" name="tipousuario" id="yacompre"/>
-                <label for="quierocomprar">Quiero comprar</label>
-                <input type="radio" name="tipousuario" id="quierocomprar"/>
-            </fieldset>
-        </div>
+                <label for="cosulta">Consulta</label>
+                <textarea name="consulta" id="consulta" cols="30" rows="10" placeholder="Ingrese su consulta ..."></textarea>
+            </div>
+
+            <div class="form__fieldset">
+                <fieldset>
+                    <legend>Elija la opción que corresponda</legend>
+                    <label for="yacompre">Ya compré</label>
+                    <input type="radio" name="tipousuario" id="yacompre"/>
+                    <label for="quierocomprar">Quiero comprar</label>
+                    <input type="radio" name="tipousuario" id="quierocomprar"/>
+                </fieldset>
+            </div>
         
-        <div class="form__genero">
-            <label for="genero">Género</label>
-            <select class="form__genero-option" name="genero" id="genero">
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-            </select>
-        </div>
+            <div class="form__genero">
+                <label for="genero">Género</label>
+                <select class="form__genero-option" name="genero" id="genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
 
-        <div class="form__sub">
-            <input type="checkbox" name="newsletter" id="newsletter"/>
-            <label for="newsletter">¿Desea suscribirse a nuestro Newsletter?
-        </div>
+            <div class="form__sub">
+                <input type="checkbox" name="newsletter" id="newsletter"/>
+                <label for="newsletter">¿Desea suscribirse a nuestro Newsletter?
+            </div>
 
-        <div class="form__btn">
+            <div class="form__btn">
+                <button type="submit">Enviar formulario</button>
+                <button type="reset">Limpiar formulario</button>  
+            </div>
+        
+        </form>
 
-            <button type="submit">Enviar formulario</button>
-            <button type="reset">Limpiar formulario</button>  
-            
-        </div>
-
-        </section>
-    </form>
+    </main>
 
     <footer class="footer__grid">
 

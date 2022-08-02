@@ -7,16 +7,25 @@ header {
 }
 
 .navbar {
-    font-size: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
 
     &__menu {
         display: flex;
 
-        &-dropdown ul {
-            color: white;
-            background-color: map-get($map: $colores, $key: btColor);
+        &-dropdown {
+
+           & img {
+                margin-top: 0.5rem;
+                width: 4.5rem;
+                height: 4.5rem;
+                margin-left: 1rem;
+            }
+        
+            & ul {
+                color: white;
+                background-color: map-get($map: $colores, $key: btColor);
+
+            }
+
         }
 
         &-title {
@@ -28,17 +37,19 @@ header {
                 &:hover {
                     color: white;
                 }
-            }
+        }
+
     }
 
     &__pages {
         display: flex;
+        align-items: flex-end;
         justify-content: end;
+        font-size: 1.5rem;
 
         & ul {
             display: flex;
             gap: 2rem;
-            padding-top: 1.5rem;
 
             & li a {
                 text-decoration: none;
@@ -46,17 +57,16 @@ header {
                 font-family: $navLetter;
                 transition: all 0.3s;
 
-                &:hover {
-                    border-bottom: 2px white solid;
-                }
+                    &:hover {
+                        border-bottom: 2px white solid;
+                    }
             }
         }
-    }
-    
-    &__buy img {
-        width: 3rem;
-        height: 3rem;
-        margin: 1rem;
-    }
-    
+
+        &-buy img {
+            width: 3rem;
+            height: 3rem;
+            margin: 1rem;
+        }
+    }    
 }

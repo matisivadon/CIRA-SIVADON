@@ -26,7 +26,7 @@ body {
   color: #A64208;
   margin-top: 4rem; }
 
-button, .card__product a, .register button, .form__btn button {
+button, .card__product__btn, .register button, .form__btn button {
   font-family: 'Alegreya', serif;
   font-size: 1.2rem;
   background-color: #BF6E50;
@@ -35,9 +35,9 @@ button, .card__product a, .register button, .form__btn button {
   border-radius: 10px;
   border: 2px solid #0D0D0D;
   transition: background-color 1s; }
-  button:hover, .card__product a:hover {
+  button:hover, .card__product__btn:hover {
     background-color: #A64208; }
-  button:active, .card__product a:active {
+  button:active, .card__product__btn:active {
     font-size: 1.1rem; }
 
 header {
@@ -146,13 +146,15 @@ main {
       font-size: 1.2rem;
       text-align: center;
       margin-bottom: 0.5rem; }
-    .card__product a {
+    .card__product__btn {
       display: inline-block;
       width: 100%;
       text-align: center;
       text-decoration: none;
       border: 3px outset #BF6E50;
       padding: 1px; }
+      .card__product__btn:hover {
+        color: white; }
 
 .register label {
   font-size: 1rem;
@@ -347,13 +349,13 @@ main {
     width: 90%; } }
 
 @media screen and (max-width: 708px) {
-  .register .card__product a, .card__product .register a, .register button {
+  .register .card__product__btn, .register button {
     margin-left: 1.5rem; } }
 
 @media screen and (max-width: 645px) {
   .register input {
     margin-left: 1.5rem; }
-  .register .card__product a, .card__product .register a, .register button {
+  .register .card__product__btn, .register button {
     margin-left: 0;
     font-size: 1rem; } }
 

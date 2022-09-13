@@ -79,7 +79,7 @@ main {
             margin-bottom: 0.5rem;
         }
 
-        & a {
+        &__btn {
             @extend button;
             display: inline-block;
             width: 100%;
@@ -87,6 +87,10 @@ main {
             text-decoration: none;
             border: 3px outset map-get($map: $colores, $key: btColor);
             padding: 1px;
+
+            &:hover {
+                color: white;
+            }
         }
     }
 }

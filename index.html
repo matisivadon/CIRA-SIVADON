@@ -37,6 +37,10 @@
 
     <link rel="stylesheet" href="./css/style.css">
 
+    <!--Javascript-->
+
+    <script defer src="./js/index.js"></script>
+
 </head>
 
 <body>
@@ -85,7 +89,7 @@
 
     <main>
         <section class="banner">
-            <h1>Tienda virtual de moda circular</h1>
+            <h1 id="titulo">Tienda virtual de moda circular</h1>
             <img src="./Assets/banner.jpg" alt="Banner">
         </section>
 
@@ -109,9 +113,9 @@
         <section>
             <h2 class="subtitle__principal">ÚLTIMAS PRENDAS SELECCIONADAS</h2>
 
-            <div class="card">
+            <div class="card" id="card">
 
-            <article class="card__product">
+            <!-- <article class="card__product">
             <img src="./Assets/sweater-corto.jpeg" alt="Sweater corto"/>
             <h3>Sweater corto</h3>
             <p>$1.800</p>
@@ -130,14 +134,14 @@
             <h3>Camisa de encaje</h3>
             <p>$1.200</p>
             <a href="./pages/second-hand.html">Ver más</a>
-            </article>
+            </article> -->
 
             </div>
 
         </section>
 
         <section class="register">
-            <form action="">
+            <form action="" id="form">
                 <label for="registrate">Registrate y enterate de nuestras promociones antes que nadie!</label>
                 <input type="email" name="correo" id="registrate" placeholder="Tu correo electronico">
                 <button type="submit">Enviar</button>

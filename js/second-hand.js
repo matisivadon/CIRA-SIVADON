@@ -5,7 +5,7 @@ const Productos = [
         precio: "1000",
         descripcion: "Buzo de lanilla con capucha",
         talle: "1",
-        imagen: "/Assets/buzo-lanilla.JPG",
+        imagen: "../Assets/buzo-lanilla.JPG",
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const Productos = [
         precio: "500",
         descripcion: "Remera Le Utthe",
         talle: "S",
-        imagen: "/Assets/remera-leutthe.JPG",
+        imagen: "../Assets/remera-leutthe.JPG",
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const Productos = [
         precio: "800",
         descripcion: "Sweater coral",
         talle: "Único",
-        imagen: "/Assets/sweater-coral.jpg",
+        imagen: "../Assets/sweater-coral.jpg",
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const Productos = [
         precio: "1200",
         descripcion: "Camisa de encaje",
         talle: "1",
-        imagen: "/Assets/camisa-encaje-2.jpeg",
+        imagen: "../Assets/camisa-encaje-2.jpeg",
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ const Productos = [
         precio: "400",
         descripcion: "Top con volados",
         talle: "1",
-        imagen: "/Assets/top-volados.jpeg",
+        imagen: "../Assets/top-volados.jpeg",
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ const Productos = [
         precio: "500",
         descripcion: "Remera de fibrana estampada",
         talle: "Único",
-        imagen: "/Assets/remera-fibrana-estampada.jpeg",
+        imagen: "../Assets/remera-fibrana-estampada.jpeg",
     },
     {
         id: 7,
@@ -53,7 +53,7 @@ const Productos = [
         precio: "5000",
         descripcion: "Parka",
         talle: "44",
-        imagen: "/Assets/parka.JPG",
+        imagen: "../Assets/parka.JPG",
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ const Productos = [
         precio: "800",
         descripcion: "Polera",
         talle: "Único",
-        imagen: "/Assets/polera.jpeg",
+        imagen: "../Assets/polera.jpeg",
     },
     {
         id: 9,
@@ -69,7 +69,7 @@ const Productos = [
         precio: "1800",
         descripcion: "Sweater corto",
         talle: "Único",
-        imagen: "/Assets/sweater-corto.jpeg",
+        imagen: "../Assets/sweater-corto.jpeg",
     },
 ]
 

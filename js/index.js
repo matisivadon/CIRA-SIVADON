@@ -5,7 +5,7 @@ const Productos = [
         precio: "1200",
         descripcion: "Camisa de encaje",
         talle: "1",
-        imagen: "/Assets/camisa-encaje.jpeg",
+        imagen: "./Assets/camisa-encaje.jpeg",
     },
     {
         id: 5,
@@ -13,7 +13,7 @@ const Productos = [
         precio: "400",
         descripcion: "Top con volados",
         talle: "1",
-        imagen: "/Assets/top-volados.jpeg",
+        imagen: "./Assets/top-volados.jpeg",
     },
     {
         id: 9,
@@ -21,7 +21,7 @@ const Productos = [
         precio: "1800",
         descripcion: "Sweater corto",
         talle: "Único",
-        imagen: "/Assets/sweater-corto.jpeg",
+        imagen: "./Assets/sweater-corto.jpeg",
     },
 ]
 

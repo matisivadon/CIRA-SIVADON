@@ -260,6 +260,23 @@ main {
   .form__sub {
     margin: 1rem; }
 
+.table {
+  margin: 1rem; }
+  .table__head {
+    background: linear-gradient(90deg, #bf6e50 60%, #ba6f6f 100%);
+    font-family: "Alegreya", serif;
+    color: white; }
+  .table__body {
+    font-family: "Fjalla One", sans-serif;
+    font-weight: bold; }
+
+.btn__carrito {
+  margin-left: 1rem; }
+
+.reset {
+  width: 2rem;
+  height: 2rem; }
+
 @media screen and (min-width: 786px) {
   .navbar__menu-dropdown {
     display: none; } }

@@ -1,0 +1,24 @@
+.table {
+    margin: 1rem;
+   
+
+    &__head {
+        background: map-get($map: $colores, $key: colorGradiente);
+        font-family: $titlesLetter;
+        color: white;
+    }
+
+    &__body {
+        font-family: $navLetter;
+        font-weight: bold;
+    }
+}
+
+.btn__carrito {
+    margin-left: 1rem;
+}
+
+.reset {
+    width: 2rem;
+    height: 2rem;
+}

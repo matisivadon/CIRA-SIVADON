@@ -39,7 +39,7 @@ const cargarProductos = (Productos) => {
                         <h3>${producto.nombre}</h3>
                         <p>$${producto.precio}</p>
                         <p>Talle: ${producto.talle}</p>
-                        <a href="/pages/second-hand.html" class="card__product__btn">Ver más</a>
+                        <a href="./pages/second-hand.html" class="card__product__btn">Ver más</a>
                     `
                     card.appendChild(article)
     }

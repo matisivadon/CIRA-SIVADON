@@ -109,7 +109,7 @@ const cargarProductos = (productos) => {
                     `
                         <img src="${producto.imagen}" alt="${producto.descripcion}"/>
                         <h3>${producto.nombre}</h3>
-                        <p>$${producto.precio}</p>
+                        <p>$ ${producto.precio}</p>
                         <p>Talle: ${producto.talle}</p>
                         <button class="card__product__btn" id="${producto.id}">Agregar a carrito</button>
                     `
@@ -118,9 +118,3 @@ const cargarProductos = (productos) => {
     agregarAlCarrito()
 }
 cargarProductos(productos)
-
-
-
-
-
-

@@ -8,10 +8,6 @@ const genero = document.querySelector("#genero")
 const newsletter = document.querySelector("#newsletter")
 const enviar = document.querySelector("#enviar")
 const limpiarForm = document.querySelector("#limpiarForm")
-// const inputs = document.querySelectorAll("input")
-
-
-
 
 //Eventos mousemove
 genero.addEventListener("mousemove", () => genero.title = "Seleccione su genero")
@@ -26,8 +22,6 @@ form.addEventListener("keypress", (e)=> {
     console.log("Se evito el envīo del formulario")
     }
 })
-
-
 
 //Ejecutar click cuando el usuario clickea "Enviar formulario"
 

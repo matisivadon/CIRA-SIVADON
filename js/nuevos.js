@@ -34,9 +34,9 @@ const agregarAlCarrito = () => {
 }
 
 function recuperarCarrito() {
-    // if (localStorage.getItem("carrito")) {
-    //     carrito = JSON.parse(localStorage.getItem("carrito"))
-    // }
+    if (localStorage.getItem("carrito")) {
+        carrito = JSON.parse(localStorage.getItem("carrito"))
+    }
     localStorage.getItem("carrito") && JSON.parse(localStorage.getItem("carrito")) 
 }
 recuperarCarrito()

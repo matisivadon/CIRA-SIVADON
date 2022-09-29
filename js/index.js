@@ -48,9 +48,23 @@ const cargarProductos = (Productos) => {
 cargarProductos(Productos)
 
 
-// Evento submit
-let formulario = document.querySelector("#form")
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault()
-    alert("Se ha registrado exitosamente")
+//Validar que el dato ingresado sea un correo electronico
+const email = document.querySelector("#mail")
+email.addEventListener("input", (e) => {
+    email.validity.typeMismatch ? email.setCustomValidity("¡Se esperaba una dirección de correo electrónico!") :  email.setCustomValidity("")
+})    
+     
+
+//Escucha del evento click si se ingresa un mail valido
+const enviarEmail = document.querySelector("#enviarEmail")
+enviarEmail.addEventListener("click", () => {
+    if(email.validity.valid) {
+        localStorage.setItem("mail", email.value)
+        alert("Se ha registrado exitosamente")
+    } else {
+        alert ("¡Se esperaba una dirección de correo electrónico!")
+    }
 })
+
+
+

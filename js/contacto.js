@@ -15,25 +15,19 @@ limpiarForm.addEventListener("mousemove", () => limpiarForm.title = "Eliminar in
 
 
 //Frenar evento submit 
-
 form.addEventListener("keypress", (e)=> {
-    if (e.key === "Enter") {
-    e.preventDefault()
-    console.log("Se evito el envīo del formulario")
-    }
+    e.key === "Enter" && e.preventDefault() 
 })
 
-//Ejecutar click cuando el usuario clickea "Enviar formulario"
+//Ejecutar click cuando el usuario clickea "Enviar formulario" si estan completos los datos obligatorios
 
 enviar.addEventListener("click", () => {
-    debugger
-        confirm = confirm("¿Confirma el envío del formulario?")
-        if (confirm == true) {
-            alert("Formulario enviado")
-            guardarDatos()
-        } else {
-            alert("Se canceló el envío del formulario")
-        }
+    if (nombre.value && correo.value && consulta.value) {
+        let envio = confirm("¿Confirma el envío del formulario?")
+        envio ? guardarDatos() : alert("Se canceló el envío del formulario")
+    } else {
+        alert ("Nombre, correo electrónico y consulta son datos obligatorios")
+    }    
 })
 
 function guardarDatos() {

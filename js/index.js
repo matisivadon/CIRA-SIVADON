@@ -1,4 +1,4 @@
-const Productos = [
+const productos = [
     {
         id: 4,
         nombre: "Camisa de encaje",
@@ -25,7 +25,7 @@ const Productos = [
     },
 ]
 
-//Función para cargar los productos desde JS a HTML
+// Función para cargar los productos desde JS a HTML
 
 const cargarProductos = (Productos) => {
     let card = document.querySelector("#card")
@@ -45,26 +45,41 @@ const cargarProductos = (Productos) => {
     }
 
 }
-cargarProductos(Productos)
+cargarProductos(productos)
 
 
-//Validar que el dato ingresado sea un correo electronico
+//Validar que el dato ingresado sea un correo electrónico
 const email = document.querySelector("#mail")
 email.addEventListener("input", (e) => {
     email.validity.typeMismatch ? email.setCustomValidity("¡Se esperaba una dirección de correo electrónico!") :  email.setCustomValidity("")
 })    
      
 
-//Escucha del evento click si se ingresa un mail valido
+//Escucha del evento click si se ingresa un mail válido
 const enviarEmail = document.querySelector("#enviarEmail")
 enviarEmail.addEventListener("click", () => {
     if(email.validity.valid) {
-        localStorage.setItem("mail", email.value)
-        alert("Se ha registrado exitosamente")
+        localStorage.setItem("correo", email.value)
+        alertEmail()
     } else {
-        alert ("¡Se esperaba una dirección de correo electrónico!")
+        alertEmailError()
     }
 })
 
+const alertEmail = () => {
+    Swal.fire({
+        icon: 'success',
+        title: 'Se ha registrado exitosamente',
+        timer: 3000,
+      })
+}
+
+const alertEmailError = () => {
+    Swal.fire({
+        icon: 'error',
+        title: '¡Se esperaba una dirección de correo electrónico!',
+        timer: 3000,
+      })
+}
 
 

@@ -23,10 +23,10 @@ form.addEventListener("keypress", (e)=> {
 
 enviar.addEventListener("click", () => {
     if (nombre.value && correo.value && consulta.value) {
-        let envio = confirm("¿Confirma el envío del formulario?")
-        envio ? guardarDatos() : alert("Se canceló el envío del formulario")
+        guardarDatos()
+        envioForm()
     } else {
-        alert ("Nombre, correo electrónico y consulta son datos obligatorios")
+        validarDatos()
     }    
 })
 
@@ -38,4 +38,21 @@ function guardarDatos() {
     localStorage.setItem("quierocomprar", quierocomprar.value)
     localStorage.setItem("genero", genero.value)
     localStorage.setItem("newsletter", newsletter.value)
+}
+
+const validarDatos = () => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Complete todos los datos solicitados',
+        timer: 3000,
+      })
+}
+
+const envioForm = () => {
+    Swal.fire({
+        icon: 'success',
+        title: 'Formulario enviado',
+        text: 'Le responderemos lo antes posible',
+        timer: 3000,
+      })
 }

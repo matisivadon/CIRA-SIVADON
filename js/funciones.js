@@ -1,4 +1,6 @@
 let carrito = []
+let productos = []
+
 
 //Función para captar el click del usuario en el boton "Agregar al carrito" y ejecutar
 
@@ -26,24 +28,29 @@ recuperarCarrito()
 //Función para cargar los productos desde JS a HTML
 
 const cargarProductos = (productos) => {
-    let card = document.querySelector("#card")
+    let nuevos = document.querySelector("#nuevos")
+    let usados = document.querySelector("#usados")
+        for (const producto of productos) {
 
-    for (const producto of productos) {
-        let article = document.createElement("article")
-        article.setAttribute("class", "card__product")
-        article.innerHTML = 
-                    `
-                        <img src="${producto.imagen}" alt="${producto.descripcion}"/>
-                        <h3>${producto.nombre}</h3>
-                        <p>$${producto.precio}</p>
-                        <p>Talle: ${producto.talle}</p>
-                        <button class="card__product__btn" id="${producto.id}">Agregar a carrito</button>
-                    `
-                    card.appendChild(article)
-    }
+            let article = document.createElement("article")
+            article.setAttribute("class", "card__product")
+            article.innerHTML = 
+                        `
+                            <img src="${producto.imagen}" alt="${producto.descripcion}"/>
+                            <h3>${producto.nombre}</h3>
+                            <p>$${producto.precio}</p>
+                            <p>Talle: ${producto.talle}</p>
+                            <button class="card__product__btn" id="${producto.id}">Agregar a carrito</button>
+                           `
+            if (nuevos!= null && producto.estado == "nuevo") {
+                nuevos.appendChild(article)
+            } else if (usados != null && producto.estado == "usado") {
+                usados.appendChild(article)
+        }
+    }    
     agregarAlCarrito()
-}
-cargarProductos(productos)
+    }
+
 
 
 //Mensaje de alerta cuando el usuario clickea "agregar al carrito"
@@ -56,3 +63,16 @@ const AlertaAlAgregar = () => {
         timer: 1000,
       })
 }
+
+//Obtener productos del json
+const obtenerProductos = async () => {
+    try {
+        const response = await fetch ('/bbdd/productos.json')
+        const data = await response.json()
+        cargarProductos(data)
+        productos.push(...data)
+    } catch (e) {
+        console.log(e)
+    }
+}
+obtenerProductos()

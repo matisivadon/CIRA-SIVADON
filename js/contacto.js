@@ -8,6 +8,7 @@ const genero = document.querySelector("#genero")
 const newsletter = document.querySelector("#newsletter")
 const enviar = document.querySelector("#enviar")
 const limpiarForm = document.querySelector("#limpiarForm")
+const compra = document.querySelector("#compra")
 
 //Eventos mousemove
 genero.addEventListener("mousemove", () => genero.title = "Seleccione su genero")

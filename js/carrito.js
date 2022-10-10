@@ -34,10 +34,11 @@ const quitarDelCarrito = (id) => {
     recuperoCarrito()
 }
 
+
 //Escuchar evento click en el boton Comprar
 compra.addEventListener("click", () => {
     const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + parseInt(producto.precio), 0)
-    alertaCompra('El total a pagar es de $' + totalCarrito)
+    alertaCompra('Gracias por su compra! El total a pagar es de $' + totalCarrito)
     localStorage.clear()
     })
 
@@ -45,15 +46,15 @@ compra.addEventListener("click", () => {
 const alertaCompra = (mensaje) => {
     Swal.fire({
         title: mensaje,
-        text: 'Gracias por su compra!',
-        confirmButtonText: '<a href="../index.html">Confirmar</a>',
-        confirmButtonColor: '#BF6E50',
-        showCancelButton: true,
-        cancelButtonText: 'Cancelar',
+        showConfirmButton: false,
+        showCloseButton: true,
+        html: `<a href="../index.html"><button>Confirmar</button></a>`
       })
 }
+
 
 // Escuchar evento click en el boton "vaciar carrito"
 vaciarCarrito.addEventListener("click", () => {
     localStorage.clear()
+    location.href = "../index.html"
 })

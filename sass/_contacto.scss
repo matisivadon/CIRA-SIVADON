@@ -28,28 +28,8 @@
         }
     }
 
-    &__fieldset {
-        margin: 1rem;
-    }
-
-    &__genero {
-        margin: 1rem;
-
-        &-option {
-            font-family: $titlesLetter;
-            color: white;
-            background-color: map-get($map: $colores, $key: btColor);
-            padding: 0.5rem;
-            border-radius: 10px;
-            border: 1px solid black;
-        }
-    }
-
-    &__sub {
-        margin: 1rem;
-    }
-
     &__btn button {
         @extend button;
+        margin-top: 1rem;
     }
 }

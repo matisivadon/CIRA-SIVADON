@@ -246,19 +246,8 @@ main {
     display: flex;
     border: 1px solid black;
     width: 80%; }
-  .form__fieldset {
-    margin: 1rem; }
-  .form__genero {
-    margin: 1rem; }
-    .form__genero-option {
-      font-family: "Alegreya", serif;
-      color: white;
-      background-color: #BF6E50;
-      padding: 0.5rem;
-      border-radius: 10px;
-      border: 1px solid black; }
-  .form__sub {
-    margin: 1rem; }
+  .form__btn .card__product__btn, .form__btn button {
+    margin-top: 1rem; }
 
 .table {
   margin: 1rem; }

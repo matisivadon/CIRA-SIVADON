@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "node-sass --include-path sass ./sass/index.scss ./css/style.css -w"
   },
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/matisivadon/CIRA-SIVADON#readme",
   "devDependencies": {
     "node-sass": "^7.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }

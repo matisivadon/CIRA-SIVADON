@@ -2,29 +2,32 @@ import fs from 'fs'
 
 export class ProductManager {
     constructor() {
-        this.products = []
-        this.path = './bbdd/productos.json'
+        this.path = './bbdd/products.json'
     }
 
-    async addProducts(nombre, precio, descripcion, talle, imagen, estado, code) {
-        const product = {
-            id: this.#generarId(),
-            nombre,
-            precio,
-            descripcion,
-            talle,
-            imagen,
-            estado,
-            code
-        }
+    async addProducts(title, description, code, price, status, stock, category, image, size) {
         try {
-            if (nombre && precio && descripcion && talle && imagen && estado && code) {
-                const validCode = this.#validarCode(code)
+        const product = {
+            id: await this.#generarId(),
+            title,
+            description,
+            code,
+            price,
+            status,
+            stock,
+            category,
+            image,
+            size
+        }
+            if (title && description && code && price && status && stock && category && image && size) {
+                const validCode = await this.#validarCode(code)
                 if (validCode) {
                     return 'Código de producto repetido'
                 } else {
-                    this.products.push(product)
-                    await fs.promises.writeFile(this.path, JSON.stringify(this.products))
+                    const products = await this.getProducts('max')
+                    products.push(product)
+                    await fs.promises.writeFile(this.path, JSON.stringify(products))
+                    return product
                 }
             }
             else {
@@ -35,12 +38,14 @@ export class ProductManager {
         }
     }
 
-    #generarId() {
-        return this.products.length === 0 ? 1 : this.products[this.products.length - 1].id + 1
+    async #generarId() {
+        const products = await this.getProducts('max')
+        return products.length === 0 ? 1 : products[products.length - 1].id + 1
     }
 
-    #validarCode(code) {
-        return this.products.find(prod => prod.code === code)
+    async #validarCode(code) {
+        const products = await this.getProducts('max')
+        return products.find(prod => prod.code === code)
     }
 
     async getProducts(limit) {
@@ -91,9 +96,8 @@ export class ProductManager {
                     }
                     return product
                 })
-                arrayProducts = JSON.stringify(arrayProducts)
-                await fs.promises.writeFile(this.path, arrayProducts)
-                return arrayProducts
+                await fs.promises.writeFile(this.path, JSON.stringify(arrayProducts))
+                return modifiedProduct
             } else {
                 return null
             }
@@ -109,7 +113,7 @@ export class ProductManager {
             if (deletedProduct) {
                 const newArray = productsParse.filter(prod => prod.id != id)
                 await fs.promises.writeFile(this.path, JSON.stringify(newArray))
-                return newArray
+                return deletedProduct
             }
         } catch (error) {
             throw new Error(error)
@@ -121,105 +125,105 @@ const newProduct = new ProductManager()
 const loadProducts = async () => {
 
     //Carga de productos
-    await newProduct.addProducts(
-        "Buzo de lanilla con capucha",
-        "1000",
-        "Buzo de lanilla con capucha",
-        "1",
-        "../Assets/buzo-lanilla.JPG",
-        "usado",
-        "U01"
-    )
-    await newProduct.addProducts(
-        "Remera Le Utthe",
-        "500",
-        "Remera Le Utthe",
-        "S",
-        "../Assets/remera-leutthe.JPG",
-        "usado",
-        "U02"
-    )
-    await newProduct.addProducts(
-        "Sweater coral",
-        "800",
-        "Sweater coral",
-        "Único",
-        "../Assets/sweater-coral.jpg",
-        "usado",
-        "U03"
-    )
-    await newProduct.addProducts(
-        "Camisa de encaje",
-        "1200",
-        "Camisa de encaje",
-        "1",
-        "../Assets/camisa-encaje-2.jpeg",
-        "usado",
-        "U04"
-    )
-    await newProduct.addProducts(
-        "Top con volados",
-        "400",
-        "Top con volados",
-        "1",
-        "../Assets/top-volados.jpeg",
-        "usado",
-        "U05"
-    )
-    await newProduct.addProducts(
-        "Remera de fibrana estampada",
-        "500",
-        "Remera de fibrana estampada",
-        "Único",
-        "../Assets/remera-fibrana-estampada.jpeg",
-        "usado",
-        "U06"
-    )
-    await newProduct.addProducts(
-        "Parka",
-        "5000",
-        "Parka",
-        "44",
-        "../Assets/parka.JPG",
-        "usado",
-        "U07"
-    )
-    await newProduct.addProducts(
-        "Polera",
-        "800",
-        "Polera",
-        "Único",
-        "../Assets/polera.jpeg",
-        "usado",
-        "U08"
-    )
-    await newProduct.addProducts(
-        "Sweater corto",
-        "1800",
-        "Sweater corto",
-        "Único",
-        "../Assets/sweater-corto.jpeg",
-        "usado",
-        "U09"
-    )
-    await newProduct.addProducts(
-        "Conjunto de plush bordo",
-        "5500",
-        "Conjunto de plush bordo",
-        "Único",
-        "../Assets/plush-bordo.jpeg",
-        "nuevo",
-        "N01"
-    )
-    await newProduct.addProducts(
-        "Conjunto de plush gris",
-        "5500",
-        "Conjunto de plush gris",
-        "Único",
-        "../Assets/plush-gris.jpeg",
-        "nuevo",
-        "N02"
-    )
+    // await newProduct.addProducts(
+    //     "Buzo de lanilla con capucha",
+    //     "1000",
+    //     "Buzo de lanilla con capucha",
+    //     "1",
+    //     "../Assets/buzo-lanilla.JPG",
+    //     "usado",
+    //     "U01"
+    // )
+    // await newProduct.addProducts(
+    //     "Remera Le Utthe",
+    //     "500",
+    //     "Remera Le Utthe",
+    //     "S",
+    //     "../Assets/remera-leutthe.JPG",
+    //     "usado",
+    //     "U02"
+    // )
+    // await newProduct.addProducts(
+    //     "Sweater coral",
+    //     "800",
+    //     "Sweater coral",
+    //     "Único",
+    //     "../Assets/sweater-coral.jpg",
+    //     "usado",
+    //     "U03"
+    // )
+    // await newProduct.addProducts(
+    //     "Camisa de encaje",
+    //     "1200",
+    //     "Camisa de encaje",
+    //     "1",
+    //     "../Assets/camisa-encaje-2.jpeg",
+    //     "usado",
+    //     "U04"
+    // )
+    // await newProduct.addProducts(
+    //     "Top con volados",
+    //     "400",
+    //     "Top con volados",
+    //     "1",
+    //     "../Assets/top-volados.jpeg",
+    //     "usado",
+    //     "U05"
+    // )
+    // await newProduct.addProducts(
+    //     "Remera de fibrana estampada",
+    //     "500",
+    //     "Remera de fibrana estampada",
+    //     "Único",
+    //     "../Assets/remera-fibrana-estampada.jpeg",
+    //     "usado",
+    //     "U06"
+    // )
+    // await newProduct.addProducts(
+    //     "Parka",
+    //     "5000",
+    //     "Parka",
+    //     "44",
+    //     "../Assets/parka.JPG",
+    //     "usado",
+    //     "U07"
+    // )
+    // await newProduct.addProducts(
+    //     "Polera",
+    //     "800",
+    //     "Polera",
+    //     "Único",
+    //     "../Assets/polera.jpeg",
+    //     "usado",
+    //     "U08"
+    // )
+    // await newProduct.addProducts(
+    //     "Sweater corto",
+    //     "1800",
+    //     "Sweater corto",
+    //     "Único",
+    //     "../Assets/sweater-corto.jpeg",
+    //     "usado",
+    //     "U09"
+    // )
+    // await newProduct.addProducts(
+    //     "Conjunto de plush bordo",
+    //     "5500",
+    //     "Conjunto de plush bordo",
+    //     "Único",
+    //     "../Assets/plush-bordo.jpeg",
+    //     "nuevo",
+    //     "N01"
+    // )
+    // await newProduct.addProducts(
+    //     "Conjunto de plush gris",
+    //     "5500",
+    //     "Conjunto de plush gris",
+    //     "Único",
+    //     "../Assets/plush-gris.jpeg",
+    //     "nuevo",
+    //     "N02"
+    // )
 
 
     //No permite carga de productos con codigo repetido

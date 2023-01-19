@@ -1,23 +1,21 @@
 import express from 'express'
-import { ProductManager } from './index.js'
-
-const newProduct = new ProductManager()
+import productsRouter from './routes/products.router.js'
+import cartsRouter from './routes/carts.router.js'
 
 const app = express()
 
 const PORT = 8080
 
-app.get('/products', async (req, res) => {
-    const { limit } = req.query
-    const products = await newProduct.getProducts(limit || 'max')
-    res.json({ products })
-})
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
-app.get('/products/:id', async (req, res) => {
-    const { id } = req.params
-    const product = await newProduct.getProductById(id)
-    res.json({ product })
-})
+app.use('/api/products', productsRouter)
+app.use('/api/carts', cartsRouter)
+
+
+// app.get('/', (req, res) => {
+//     res.send('Ruta Raiz')
+// })
 
 app.listen(PORT, () => {
     console.log(`Escuchando al puerto ${PORT}`)

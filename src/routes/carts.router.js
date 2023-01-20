@@ -20,10 +20,9 @@ router.get('/:cid', async (req, res) => {
 
 router.post('/:cid/product/:pid', async (req, res) => {
     const { cid, pid } = req.params
-    const cart = await newCart.getCartById(cid)
-    const product = await newProduct.getProductById(pid)
-    const addProduct = await newCart.addProductToCart(cid, pid, 1)
-    res.json({cart, product, addProduct})
+    const {quantity} = req.body
+    const addProduct = await newCart.addProductToCart(cid, pid, quantity)
+    res.json({addProduct})
 })
 
 

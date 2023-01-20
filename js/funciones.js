@@ -27,24 +27,24 @@ recuperarCarrito()
 
 //Función para cargar los productos desde JS a HTML
 
-const cargarProductos = (productos) => {
+const cargarProductos = (products) => {
     let nuevos = document.querySelector("#nuevos")
     let usados = document.querySelector("#usados")
-        for (const producto of productos) {
+        for (const product of products) {
 
             let article = document.createElement("article")
             article.setAttribute("class", "card__product")
             article.innerHTML = 
                         `
-                            <img src="${producto.imagen}" alt="${producto.descripcion}"/>
-                            <h3>${producto.nombre}</h3>
-                            <p>$${producto.precio}</p>
-                            <p>Talle: ${producto.talle}</p>
-                            <button class="card__product__btn" id="${producto.id}">Agregar a carrito</button>
+                            <img src="${product.image}" alt="${product.description}"/>
+                            <h3>${product.title}</h3>
+                            <p>$${product.price}</p>
+                            <p>Talle: ${product.size}</p>
+                            <button class="card__product__btn" id="${product.id}">Agregar a carrito</button>
                            `
-            if (nuevos!= null && producto.estado == "nuevo") {
+            if (nuevos!= null && product.category == "nuevo") {
                 nuevos.appendChild(article)
-            } else if (usados != null && producto.estado == "usado") {
+            } else if (usados != null && product.category == "usado") {
                 usados.appendChild(article)
         }
     }    
@@ -67,7 +67,7 @@ const AlertaAlAgregar = () => {
 //Obtener productos del json
 const obtenerProductos = async () => {
     try {
-        const response = await fetch ('../bbdd/productos.json')
+        const response = await fetch ('../bbdd/products.json')
         const data = await response.json()
         cargarProductos(data)
         productos.push(...data)

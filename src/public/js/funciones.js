@@ -1,7 +1,6 @@
 let carrito = []
 let productos = []
 
-
 //Función para captar el click del usuario en el boton "Agregar al carrito" y ejecutar
 
 const agregarAlCarrito = () => {
@@ -67,7 +66,7 @@ const AlertaAlAgregar = () => {
 //Obtener productos del json
 const obtenerProductos = async () => {
     try {
-        const response = await fetch ('../bbdd/products.json')
+        const response = await fetch ('../../bbdd/products.json')
         const data = await response.json()
         cargarProductos(data)
         productos.push(...data)

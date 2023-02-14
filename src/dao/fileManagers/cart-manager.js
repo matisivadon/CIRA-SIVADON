@@ -1,8 +1,10 @@
 import fs from "fs"
+import { __dirname } from '../../utils.js'
 
-class CartManager {
+
+export default class CartManager {
     constructor() {
-        this.path = './bbdd/carts.json'
+        this.path = __dirname + '/bbdd/carts.json'
     }
 
     async getCart() {
@@ -67,7 +69,7 @@ class CartManager {
         if (!cart) {
             return 'Carrito no encontrado'
         } else {
-            const index = carts.indexOf(cart);
+            const index = carts.indexOf(cart); 
             if (carts[index].products.find((p) => p.id === parseInt(pid))) {
                 const indexP =
                     carts[index]
@@ -90,7 +92,6 @@ class CartManager {
     }
 }
 
-export default CartManager
 
 
 

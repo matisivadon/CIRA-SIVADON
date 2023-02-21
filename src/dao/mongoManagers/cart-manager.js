@@ -13,7 +13,7 @@ export default class CartManager {
 
     async getCartById(cid) {
         try {
-            const cart = await cartsModel.findById(cid).populate('products.id')
+            const cart = await cartsModel.find({ _id: cid, lean:true })
             return cart
         } catch (error) {
             console.log(error)
@@ -29,12 +29,62 @@ export default class CartManager {
         }
     }
 
+    async addProductToCart(cid, _id) {
+        try {
+            if (!cid) {
+                return 'Carrito no encontado'
+            } else {
+                const cart = await cartsModel.findById(cid)
+                cart.products.push({ product: _id })
+                cart.save()
+                return cart
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    async addProductToCart(cid, pid, quantity) {
+    async updateCart(cid, _id, infoProduct) {
         try {
             const cart = await cartsModel.findById(cid)
-            cart.products.push({ id: pid })     
+            cart.products.push({ product: _id, ...infoProduct })
             cart.save()
+            return cart
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async updateQuantity(cid, _id, quantity) {
+        try {
+            const cart = await cartsModel.findById(cid)
+            const productIndex = cart.products.findIndex(product => product.product.toString() === _id)
+            if (productIndex >= 0) {
+                cart.products[productIndex].quantity += quantity;
+                cart.save()
+                return cart
+            } else {
+                return 'Producto no encontrado'
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async deleteProductFromCart(cid, pid) {
+        try {
+            const cart = await cartsModel.findById(cid)
+            cart.products.shift({ id: pid })
+            cart.save()
+            return cart
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async deleteCart(cid) {
+        try {
+            const cart = await cartsModel.findByIdAndDelete(cid)
             return cart
         } catch (error) {
             console.log(error);

@@ -2,10 +2,15 @@ import {productsModel} from '../models/products.model.js'
 
 export default class ProductManager {
 
-    async getProducts(limit) {
+    async getProducts(limit, page, category, status, price) {
         try {
-            const products = await productsModel.find()
-            return products
+            if(!category || !status) {
+                const products = await productsModel.paginate({},{limit, page, lean:true})
+                return products
+            }else {
+                const products = await productsModel.paginate({$or:[{category}, {status}]},{limit, page, sort:{price}, lean:true})
+                return products
+            }
         } catch (error) {
             console.log(error);
         }
@@ -20,27 +25,27 @@ export default class ProductManager {
         }
     }
 
-    async getProductById(id) {
+    async getProductById(pid) {
         try {
-            const product = await productsModel.findById(id)
+            const product = await productsModel.findById(pid)
             return product
         } catch (error) {
             console.log(error)
         }
     }
 
-    async updateProduct(id, change) {
+    async updateProduct(pid, change) {
         try {
-            const product = await productsModel.findByIdAndUpdate(id, change, {new:true})
+            const product = await productsModel.findByIdAndUpdate(pid, change, {new:true})
             return product
         } catch (error) {
             console.log(error)
         }
     }
 
-    async deleteProduct(id) {
+    async deleteProduct(pid) {
         try {
-            const product = await productsModel.findByIdAndDelete(id)
+            const product = await productsModel.findByIdAndDelete(pid)
             return product
         } catch (error) {
             console.log(error);

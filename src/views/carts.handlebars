@@ -1,0 +1,30 @@
+    <h2 class="subtitle__secundario">MI CARRITO:</h2>
+        <table class="table">
+            <thead class="table__head">
+                <tr>
+                    <th>ID</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>IMPORTE</th>
+                    <th>TALLE</th>
+                    <th>ELIMINAR PRODUCTO</th>
+                </tr>
+            </thead>
+
+            <tbody class="table__body">
+                {{#each products}}
+                        <tr>
+                        <td>{{this._id}}</td>
+                        <td>{{this.nombre}}</td>
+                        <td>$ {{this.precio}}</td>
+                        <td>{{this.talle}}</td>
+                        <td><button class="reset" id="quitar{{this._id}}">-</button></td>
+                        </tr>
+                {{/each}}        
+            </tbody>
+        </table>
+
+       <button class="btn__carrito" id="btn_compra">COMPRAR</button>
+       <button class="btn__carrito" id="btn_vaciar">VACIAR CARRITO</button></a> 
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/carrito.js"></script>

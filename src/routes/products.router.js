@@ -7,15 +7,26 @@ const router = Router()
 const productManager = new ProductManager()
 
 router.get('/', async (req, res) => {
-    const { limit } = req.query
-    const products = await productManager.getProducts(limit || 'max')
-    res.json({ products })
-})
+    const {limit= 10, page= 1, category, status, price} = req.query
+    const products = await productManager.getProducts(limit, page, category, status, price)
+        res.json({
+            status: !products.docs? 'Error' : 'Success',
+            payload: products.docs,
+            totalPages: products.totalPages,
+            prevPage: products.prevPage,
+            nextPage: products.nextPage,
+            page: products.page,
+            hasPrevPage: products.prevPage? true : false,
+            hasNexPage: products.nextPage? true : false,
+            prevLink: products.hasPrevPage? `localhost:8080/api/products?page=${products.prevPage}` : null,
+            nextLink: products.hasNextPage?`localhost:8080/api/products?page=${products.nextPage}` : null,
+        })
+    })
 
 router.get('/:pid', async (req, res) => {
     const { pid } = req.params
     const product = await productManager.getProductById(pid)
-    res.json({ product })
+        res.json({ product })
 })
 
 router.post('/', async (req, res) => {
@@ -26,8 +37,6 @@ router.post('/', async (req, res) => {
         const product = await productManager.addProducts({title, description, code, price, status, stock, category, image, size})
         res.json({message:'producto agregado con éxito',product: product})
     }
-
-    
 })
 
 router.put('/:pid', async (req, res) => {
@@ -37,9 +46,9 @@ router.put('/:pid', async (req, res) => {
     res.json({message:'producto actualizado con éxito',product})
 })
 
-router.delete('/:id', async (req, res) => {
-    const {id} = req.params
-    const product = await productManager.deleteProduct(id)
+router.delete('/:pid', async (req, res) => {
+    const {pid} = req.params
+    const product = await productManager.deleteProduct(pid)
     res.json({message:'producto eliminado con éxito',product})
 })
 

@@ -1,0 +1,14 @@
+<div class="card">
+    {{#each products}}
+    <article class="card__product">
+        <img src="{{this.image}}" alt="{{this.description}}">
+        <h3>{{this.title}}</h3>
+        <p>${{this.price}}</p>
+        <p>Talle: {{this.size}}</p>
+        <button class="card__product__btn" id="{{this.id}}">Agregar a carrito</button>
+    </article>
+    {{/each}}
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/funciones.js"></script>

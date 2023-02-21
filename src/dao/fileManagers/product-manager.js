@@ -60,7 +60,6 @@ export default class ProductManager {
                 } else {
                     return productsParse.slice(0, limit)
                 }
-
             } else {
                 return []
             }

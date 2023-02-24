@@ -1,5 +1,5 @@
 import { Router } from "express"
-import ProductManager from "../dao/fileManagers/product-manager.js"
+import ProductManager from "../dao/mongoManagers/product-manager.js"
 import CartManager from "../dao/mongoManagers/cart-manager.js"
 
 const productManager = new ProductManager()
@@ -14,6 +14,7 @@ router.get('/', async(req, res) => {
 router.get('/products', async (req, res) => {
     const {limit, page, category, status, price} = req.query
     const products = await productManager.getProducts(limit, page, category, status, price)
+    console.log(products);
     res.render('products',{
         products,
         style: 'style.css'

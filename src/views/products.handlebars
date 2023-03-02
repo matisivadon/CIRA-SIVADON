@@ -1,11 +1,13 @@
+<h2>Bienvenido {{email}}</h2>
+<button onclick="location.href='/users/logout'">Log Out</button>
 <div class="card">
-    {{#each products}}
+    {{#each products.docs}}
     <article class="card__product">
         <img src="{{this.image}}" alt="{{this.description}}">
         <h3>{{this.title}}</h3>
         <p>${{this.price}}</p>
         <p>Talle: {{this.size}}</p>
-        <button class="card__product__btn" id="{{this.id}}">Agregar a carrito</button>
+        <button class="card__product__btn" id="{{this._id}}">Agregar a carrito</button>
     </article>
     {{/each}}
 </div>

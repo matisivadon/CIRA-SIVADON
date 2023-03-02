@@ -2,14 +2,20 @@ import {productsModel} from '../models/products.model.js'
 
 export default class ProductManager {
 
-    async getProducts(limit=15, page=1, category, status, price) {
+    async getProducts(limit, page, category, status, price) {
         try {
-            if(!category || !status) {
+            if(!category && !status) {
                 const products = await productsModel.paginate({},{limit, page, lean:true})
-                return products.docs
-            }else {
-                const products = await productsModel.paginate({$or:[{category}, {status}]},{limit, page, sort:{price}, lean:true})
-                return products.docs
+                return products
+            } else if (category && !status){
+                const products = await productsModel.paginate({category},{limit, page, sort:{price}, lean:true})
+                return products
+            } else if(status && !category) {
+                const products = await productsModel.paginate({status},{limit, page, sort:{price}, lean:true})
+                return products
+            } else if(category && status) {
+                const products = await productsModel.paginate({category, status},{limit, page, sort:{price}, lean:true})
+                return products
             }
         } catch (error) {
             console.log(error);

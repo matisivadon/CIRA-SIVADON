@@ -1,13 +1,18 @@
 import express from 'express'
+import handlebars from 'express-handlebars'
+import session from 'express-session'
+import {__dirname} from './utils.js'
+import cookieParser from 'cookie-parser'
+import mongoStore from 'connect-mongo'
+import './dbConfig.js'
 import productsRouter from './routes/products.router.js'
 import cartsRouter from './routes/carts.router.js'
 import chatRouter from './routes/chat.router.js'
 import viewsRouter from './routes/views.router.js'
-import handlebars from 'express-handlebars'
-import {__dirname} from './utils.js'
-import { Server } from 'socket.io'
-import { chatModel } from './dao/models/chat.model.js'
-import './dbConfig.js'
+import usersRouter from './routes/users.router.js'
+// import { Server } from 'socket.io'
+// import { chatModel } from './dao/models/chat.model.js'
+
 
 
 const app = express()
@@ -16,17 +21,33 @@ const PORT = 8080
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
 app.use(express.static(__dirname+'/public'))
+app.use(cookieParser())
 
+//handlebars
+app.engine('handlebars', handlebars.engine())
+app.set('view engine', 'handlebars')
+app.set ('views', __dirname + '/views')
+
+//session
+app.use(
+    session({
+        store: new mongoStore ({
+            mongoUrl: 'mongodb+srv://msivadon:coderhouse@cluster0.zpwyhsx.mongodb.net/ecommerce?retryWrites=true&w=majority'
+        }),
+        resave: false,
+        saveUninitialized: false,
+        secret: 'sessionKey',
+        cookie:{maxAge: 60000}
+    })
+)
+
+//routes
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
 app.use('/chat', chatRouter)
 app.use('/', viewsRouter)
-
-app.engine('handlebars', handlebars.engine())
-app.set('view engine', 'handlebars')
-app.set ('views', __dirname + '/views')
+app.use('/users', usersRouter)
 
 
 app.listen(PORT, () => {

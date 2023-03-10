@@ -16,11 +16,13 @@ const usersSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        default: ' '
     }
 })
 export const usersModel = mongoose.model('users', usersSchema)

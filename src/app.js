@@ -10,6 +10,7 @@ import cartsRouter from './routes/carts.router.js'
 import chatRouter from './routes/chat.router.js'
 import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
+import './passport/passportStrategies.js'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
 

@@ -1,10 +1,12 @@
 import { Router } from 'express'
 import UserManager from '../dao/mongoManagers/users-manager.js'
-import { hashPassword, comparePasswords } from '../utils.js'
+import { hashData, compareHashedData } from '../utils.js'
 import passport from 'passport'
+
 
 const router = Router()
 const userManager = new UserManager()
+
 
 
 router.post('/registro', async (req, res) => {
@@ -13,7 +15,7 @@ router.post('/registro', async (req, res) => {
     if (user.length !== 0) {
        res.redirect('/errorRegistro')
     } else {
-        const hashNewPassword = await hashPassword(password)
+        const hashNewPassword = await hashData(password)
         const newUser = { ...req.body, password: hashNewPassword }
         await userManager.createUser(newUser)
         res.redirect('/login')
@@ -24,7 +26,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body
     const user = await userManager.findUser({email})
     if (user.length !== 0) {
-        const isValidPassword = await comparePasswords(password, user[0].password)
+        const isValidPassword = await compareHashedData(password, user[0].password)
         if (isValidPassword) {
             for (const key in req.body) {
                 req.session[key] = req.body[key]
@@ -62,5 +64,13 @@ router.get('/github', passport.authenticate('github', {failureRedirect:'/errorLo
     res.redirect('/products')
 })
 
+// LOGIN Y REGISTRO CON GOOGLE
+
+router.get('/registroGoogle', passport.authenticate('google', { scope: ['profile', 'email'] }))
+router.get('/google', passport.authenticate('google', {failureRedirect:'/errorLogin'}), async (req, res) => {
+    req.session.email = req.user.email
+    req.session.logged = true
+    res.redirect('/products')
+})
 
 export default router

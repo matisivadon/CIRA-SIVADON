@@ -1,24 +1,50 @@
 import {usersModel} from '../models/users.model.js'
 
+
 export default class UserManager {
 
     async findUser(email, password) {
-        const user = await usersModel.find(email, password)
-        return user
+        try {
+            const user = await usersModel.find(email, password)
+            return user
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     async findUserById(_id) {
-        const user = await usersModel.findById(_id)
-        return user
+        try {
+            const user = await usersModel.findOne({_id}).populate('cart').lean() //modificado
+            return user
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     async findOneUser(email) {
-        const user = await usersModel.findOne(email)
-        return user
+        try {
+            const user = await usersModel.findOne(email)
+            return user
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     async createUser(infoUser) {
-        const createUser = await usersModel.create(infoUser)
-        return createUser
+        try {
+            const newUser = await usersModel.create(infoUser)
+            return newUser
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+    async updateUser(_id, objUser) {
+        try {
+            const user = await usersModel.updateOne({_id}, {$set:objUser}, {new:true})
+            return user
+        } catch (error) {
+            console.log(error)
+        }
+    }        
 }

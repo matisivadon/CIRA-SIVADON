@@ -4,12 +4,14 @@ import session from 'express-session'
 import {__dirname} from './utils.js'
 import cookieParser from 'cookie-parser'
 import mongoStore from 'connect-mongo'
-import './dbConfig.js'
 import productsRouter from './routes/products.router.js'
 import cartsRouter from './routes/carts.router.js'
 import chatRouter from './routes/chat.router.js'
 import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
+import sessionsRouter from './routes/sessions.router.js'
+import passport from 'passport'
+import './dbConfig.js'
 import './passport/passportStrategies.js'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
@@ -24,6 +26,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname+'/public'))
 app.use(cookieParser())
+
+//passport
+app.use(passport.initialize())
 
 //handlebars
 app.engine('handlebars', handlebars.engine())
@@ -46,6 +51,7 @@ app.use(
 //routes
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
+app.use('/api/sessions', sessionsRouter)
 app.use('/chat', chatRouter)
 app.use('/', viewsRouter)
 app.use('/users', usersRouter)

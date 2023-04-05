@@ -7,22 +7,22 @@ const recuperoCarrito = () => {
     if(carrito) {
         let tabla = document.querySelector("tbody")
         tabla.innerHTML = ""
-        carrito.forEach(producto => {
+        carrito.forEach(product => {
             tabla.innerHTML += 
                         `               
                         <tr>
-                        <td>${producto.id}</td>
-                        <td>${producto.nombre}</td>
-                        <td>$ ${producto.precio}</td>
-                        <td>${producto.talle}</td>
-                        <td><button class="reset" id="quitar${producto.id}">-</button></td>
+                        <td>${product.id}</td>
+                        <td>${product.title}</td>
+                        <td>$ ${product.price}</td>
+                        <td>${product.size}</td>
+                        <td><button class="reset" id="quitar${product.id}">-</button></td>
                         </tr>
                         `
                     })
     
-        carrito.forEach(producto => {
-            const btnEliminar = document.querySelector(`#quitar${producto.id}`)
-            btnEliminar.addEventListener("click", () => quitarDelCarrito(`${producto.id}`))
+        carrito.forEach(product => {
+            const btnEliminar = document.querySelector(`#quitar${product.id}`)
+            btnEliminar.addEventListener("click", () => quitarDelCarrito(`${product.id}`))
         })
     } else {
         return []
@@ -33,7 +33,7 @@ recuperoCarrito()
 
 
 const quitarDelCarrito = (id) => {
-    const posicion = carrito.findIndex(producto => producto.id == id)
+    const posicion = carrito.findIndex(product => product.id == id)
     carrito.splice(posicion, 1)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     recuperoCarrito()
@@ -42,7 +42,7 @@ const quitarDelCarrito = (id) => {
 
 //Escuchar evento click en el boton Comprar
 compra.addEventListener("click", () => {
-    const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + parseInt(producto.precio), 0)
+    const totalCarrito = carrito.reduce((acumulador, product) => acumulador + parseInt(product.price), 0)
     alertaCompra('Gracias por su compra! El total a pagar es de $' + totalCarrito)
     localStorage.clear()
     })

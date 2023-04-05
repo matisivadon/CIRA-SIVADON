@@ -63,10 +63,12 @@ const AlertaAlAgregar = () => {
       })
 }
 
+
+
 //Obtener productos del json
 const obtenerProductos = async () => {
     try {
-        const response = await fetch ('../../bbdd/products.json')
+        const response = await fetch ('../bbdd/products.json')
         const data = await response.json()
         cargarProductos(data)
         productos.push(...data)

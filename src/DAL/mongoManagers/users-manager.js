@@ -14,25 +14,26 @@ export default class UserManager {
 
     async findUserById(_id) {
         try {
-            const user = await usersModel.findOne({_id}).populate('cart').lean() //modificado
+            const user = await usersModel.findById(_id)
+            // .populate('cart').lean()
             return user
         } catch (error) {
             console.log(error)
         }
     }
 
-    async findOneUser(email) {
+    async findOneUser(_id) {
         try {
-            const user = await usersModel.findOne(email)
+            const user = await usersModel.findById(_id).populate('cart').lean()
             return user
         } catch (error) {
             console.log(error)
         }
     }
 
-    async createUser(infoUser) {
+    async createUser(user) {
         try {
-            const newUser = await usersModel.create(infoUser)
+            const newUser = await usersModel.create(user)
             return newUser
         } catch (error) {
             console.log(error)

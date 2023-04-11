@@ -2,18 +2,18 @@ import { cartsModel } from "../models/carts.model.js"
 
 export default class CartManager {
 
-    async getCart() {
+    async getCart(_id) {
         try {
-            const carts = await cartsModel.find()
+            const carts = await cartsModel.find(_id)
             return carts
         } catch (error) {
             console.log(error)
         }
     }
 
-    async getCartById(cid) {
+    async getCartById(_id) {
         try {
-            const cart = await cartsModel.find({ _id: cid, lean:true })
+            const cart = await cartsModel.findById(_id)
             return cart
         } catch (error) {
             console.log(error)
@@ -35,14 +35,23 @@ export default class CartManager {
                 return 'Carrito no encontado'
             } else {
                 const cart = await cartsModel.findById(cid)
-                cart.products.push({ product: _id })
-                cart.save()
-                return cart
-            }
-        } catch (error) {
+                const productIndex = cart.products.findIndex(product => product.product.toString() === _id)
+                if (productIndex >= 0) {
+                    cart.products[productIndex].quantity += 1
+                    cart.save()
+                    return cart
+                } else {
+                    cart.products.push({ product: _id })
+                    cart.save()
+                    return cart
+                }
+            } 
+            
+        }   catch (error) {
             console.log(error);
         }
     }
+
 
     async updateCart(cid, _id, infoProduct) {
         try {
@@ -60,7 +69,7 @@ export default class CartManager {
             const cart = await cartsModel.findById(cid)
             const productIndex = cart.products.findIndex(product => product.product.toString() === _id)
             if (productIndex >= 0) {
-                cart.products[productIndex].quantity += quantity;
+                cart.products[productIndex].quantity += quantity
                 cart.save()
                 return cart
             } else {
@@ -74,7 +83,8 @@ export default class CartManager {
     async deleteProductFromCart(cid, pid) {
         try {
             const cart = await cartsModel.findById(cid)
-            cart.products.shift({ id: pid })
+            const index = cart.products.findIndex(p => p.product == pid)
+            cart.products.splice(index, 1)
             cart.save()
             return cart
         } catch (error) {

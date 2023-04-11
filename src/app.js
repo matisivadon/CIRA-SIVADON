@@ -11,7 +11,8 @@ import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
 import sessionsRouter from './routes/sessions.router.js'
 import passport from 'passport'
-import './dbConfig.js'
+import config from './config.js'
+import './DAL/dbConfig.js'
 import './passport/passportStrategies.js'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
@@ -20,7 +21,7 @@ import './passport/passportStrategies.js'
 
 const app = express()
 
-const PORT = 8080
+const PORT = config.port
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))

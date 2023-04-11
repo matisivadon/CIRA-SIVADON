@@ -1,8 +1,8 @@
 import passport from "passport"
 import { Strategy as GithubStrategy } from "passport-github2"
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
-import UserManager from '../dao/mongoManagers/users-manager.js'
-import { usersModel } from "../dao/models/users.model.js"
+import UserManager from '../DAL/mongoManagers/users-manager.js'
+import { usersModel } from "../DAL/models/users.model.js"
 
 
 const userManager = new UserManager()

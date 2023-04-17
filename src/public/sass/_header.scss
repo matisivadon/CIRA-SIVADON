@@ -63,10 +63,24 @@ header {
             }
         }
 
-        &-buy img {
-            width: 3rem;
-            height: 3rem;
-            margin: 1rem;
+        &-buy {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0rem;
+            justify-items: center;
         }
+            & span{
+                height: 0.5rem;
+                font-size: 1.2rem;
+                color: white;
+                margin-left: 2rem;
+                // display:none
+            }
+
+            & img {
+                width: 3rem;
+                height: 3rem;
+                margin: 0.8rem;
+            }
     }    
 }

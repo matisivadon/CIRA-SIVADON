@@ -1,17 +1,20 @@
 let carrito = JSON.parse(localStorage.getItem("carrito"))
 const compra = document.querySelector("#btn_compra")
 const vaciarCarrito = document.querySelector("#btn_vaciar")
+let count = ''
 
 
 const recuperoCarrito = () => {
-    if(carrito) {
+    if(carrito.length >0) {
+        count = carrito.length
+        let counter = document.querySelector('#counter')
+        counter.innerText = count
         let tabla = document.querySelector("tbody")
         tabla.innerHTML = ""
         carrito.forEach(product => {
             tabla.innerHTML += 
                         `               
                         <tr>
-                        <td>${product.id}</td>
                         <td>${product.title}</td>
                         <td>$ ${product.price}</td>
                         <td>${product.size}</td>

@@ -14,6 +14,7 @@ import passport from 'passport'
 import config from './config.js'
 import './DAL/dbConfig.js'
 import './passport/passportStrategies.js'
+import cors from 'cors'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
 
@@ -27,6 +28,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname+'/public'))
 app.use(cookieParser())
+app.use(cors({origin:'http://127.0.0.1:5500', methods:['GET', 'POST', 'PUT', 'DELETE']}))
 
 //passport
 app.use(passport.initialize())

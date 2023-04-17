@@ -18,21 +18,21 @@ export async function getAllProducts(req, res) {
 
 //products router
 export async function getAllTheProducts(req, res){
-    const {limit= 10, page= 1, category, status, price} = req.query
+    const {limit= 11, page= 1, category, status, price} = req.query
     try {
         const products = await getProducts(limit, page, category, status, price)
-        res.json({
-            status: products.lenght === 0? 'Error' : 'Success',
-            payload: products.docs,
-            totalPages: products.totalPages,
-            prevPage: products.prevPage,
-            nextPage: products.nextPage,
-            page: products.page,
-            hasPrevPage: products.prevPage? true : false,
-            hasNexPage: products.nextPage? true : false,
-            prevLink: products.hasPrevPage? `localhost:8080/api/products?page=${products.prevPage}` : null,
-            nextLink: products.hasNextPage?`localhost:8080/api/products?page=${products.nextPage}` : null,
-        })
+        res.json({products})
+            // status: products.lenght === 0? 'Error' : 'Success',
+            // payload: products.docs,
+            // totalPages: products.totalPages,
+            // prevPage: products.prevPage,
+            // nextPage: products.nextPage,
+            // page: products.page,
+            // hasPrevPage: products.prevPage? true : false,
+            // hasNexPage: products.nextPage? true : false,
+            // prevLink: products.hasPrevPage? `localhost:8080/api/products?page=${products.prevPage}` : null,
+            // nextLink: products.hasNextPage?`localhost:8080/api/products?page=${products.nextPage}` : null,
+        // })
     } catch (error) {
         return error
     }

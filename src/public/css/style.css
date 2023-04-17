@@ -81,10 +81,20 @@ header {
       transition: all 0.3s; }
       .navbar__pages ul li a:hover {
         border-bottom: 2px white solid; }
-  .navbar__pages-buy img {
+  .navbar__pages-buy {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0rem;
+    justify-items: center; }
+  .navbar__pages span {
+    height: 0.5rem;
+    font-size: 1.2rem;
+    color: white;
+    margin-left: 2rem; }
+  .navbar__pages img {
     width: 3rem;
     height: 3rem;
-    margin: 1rem; }
+    margin: 0.8rem; }
 
 main {
   padding-bottom: 3rem;

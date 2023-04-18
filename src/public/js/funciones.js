@@ -1,5 +1,6 @@
 let carrito = []
 let products = []
+console.log(products);
 let count = ''
 
 //Función para captar el click del usuario en el boton "Agregar al carrito" y ejecutar
@@ -9,7 +10,6 @@ const agregarAlCarrito = () => {
     for (const card__product__btn of buttons) {
         card__product__btn.addEventListener("click", ()=> {
             const product = products.find(prod => prod.id == card__product__btn.id)
-            console.log(product);
             carrito.push(product)
             localStorage.setItem("carrito", JSON.stringify(carrito))
             if(carrito.length > 0) {
@@ -51,13 +51,14 @@ const cargarProductos = (products) => {
                             <h3>${product.title}</h3>
                             <p>$${product.price}</p>
                             <p>Talle: ${product.size}</p>
-                            <button class="card__product__btn" id="${product._id}">Agregar a carrito</button>
+                            <button class="card__product__btn" id="${product.id}">Agregar a carrito</button>
                            `
             if (nuevos!= null && product.category == "nuevo") {
                 nuevos.appendChild(article)
             } else if (usados != null && product.category == "usado") {
                 usados.appendChild(article)
         }
+        console.log(article);
         }    
     agregarAlCarrito()       
 }
@@ -68,10 +69,12 @@ const cargarProductos = (products) => {
 // Obtener productos de la base de datos
 const obtenerProductos = async () => {
     try {
-        // const response = await fetch ('../bbdd/products.json')
-        const response = await fetch('http://localhost:8080/api/products')
+        const response = await fetch ('../bbdd/products.json')
+        // const response = await fetch('http://localhost:8080/api/products') -- base de datos
         const data = await response.json()
-        products.push(...data.products.docs)
+        console.log(data);
+        // products.push(...data.products.docs) -- base de datos
+        products.push(...data)
         cargarProductos(products)
     } catch (e) {
         console.log(e)

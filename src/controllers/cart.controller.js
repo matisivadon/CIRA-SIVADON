@@ -6,7 +6,6 @@ export async function getACartById(req, res) {
     const {cid} = req.params
     try {
         const cart = await getCartById(cid)
-        console.log(cart);
         res.render('carts', {
             cart,
             style: 'style.css'
@@ -29,7 +28,7 @@ export async function addACart(req,res){
 export async function getOneCart(req,res) {
     const { cid } = req.params
     try {
-        const cart = await getCartById(cid)
+        const cart = await getCart(cid)
         res.json({cart})
     } catch (error) {
         return error

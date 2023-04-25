@@ -1,10 +1,10 @@
 import fs from 'fs'
-import {__dirname} from '../../utils.js'
+import {__dirname} from '../../../utils.js'
 
 
-export default class ProductManager {
+export default class ProductsFile {
     constructor() {
-        this.path = __dirname + '/bbdd/products.json'
+        this.path = __dirname + '/public/bbdd/products.json'
     }
 
     async addProducts(title, description, code, price, status, stock, category, image, size) {

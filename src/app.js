@@ -12,7 +12,6 @@ import usersRouter from './routes/users.router.js'
 import sessionsRouter from './routes/sessions.router.js'
 import passport from 'passport'
 import config from './config.js'
-import './DAL/dbConfig.js'
 import './passport/passportStrategies.js'
 import cors from 'cors'
 // import { Server } from 'socket.io'
@@ -47,7 +46,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         secret: 'sessionKey',
-        cookie:{maxAge: 60000}
+        cookie:{maxAge: 180000}
     })
 )
 

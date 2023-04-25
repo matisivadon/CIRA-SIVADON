@@ -2,7 +2,7 @@ import fs from "fs"
 import { __dirname } from '../../utils.js'
 
 
-export default class CartManager {
+export default class CartFile {
     constructor() {
         this.path = __dirname + '/bbdd/carts.json'
     }

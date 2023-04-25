@@ -1,10 +1,8 @@
-import ProductManager from "../DAL/mongoManagers/product-manager.js"
-
-const productManager = new ProductManager()
+import {productsDao} from "../persistencia/DAOs/factory.js"
 
 export async function getProducts(limit, page, category, status, price) {
     try {
-        const products = await productManager.getProducts(limit, page, category, status, price)
+        const products = await productsDao.getProducts(limit, page, category, status, price)
         return products
     } catch (error) {
         return error
@@ -13,7 +11,7 @@ export async function getProducts(limit, page, category, status, price) {
 
 export async function addProducts(objProduct) {
     try {
-        const product = await productManager.addProducts(objProduct)
+        const product = await productsDao.addProducts(objProduct)
         return product
     } catch (error) {
         return error
@@ -23,7 +21,7 @@ export async function addProducts(objProduct) {
 
 export async function getProductById(pid) {
     try {
-        const product = await productManager.getProductById(pid)
+        const product = await productsDao.getProductById(pid)
         return product
     } catch (error) {
         return error
@@ -32,7 +30,7 @@ export async function getProductById(pid) {
 
 export async function updateProduct(pid, change) {
     try {
-        const product = await productManager.updateProduct(pid, change)
+        const product = await productsDao.updateProduct(pid, change)
         return product
     } catch (error) {
         return error
@@ -41,7 +39,7 @@ export async function updateProduct(pid, change) {
 
 export async function deleteProduct(pid) {
     try {
-        const product = await productManager.deleteProduct(pid)
+        const product = await productsDao.deleteProduct(pid)
         return product
     } catch (error) {
         return error

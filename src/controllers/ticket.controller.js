@@ -1,0 +1,15 @@
+import TicketManager from "../services/ticket.service.js"
+
+
+const ticketManager = new TicketManager()
+
+export async function generateATicket(req, res) {
+    const {userId} = req.body
+    const {cid} = req.params
+    try {
+        const ticket = await ticketManager.generateTicket(userId, cid)
+        res.json({message:'Ticket generado con exito', ticket})
+    } catch (error) {
+        console.log(error)
+    }
+}

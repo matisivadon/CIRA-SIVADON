@@ -1,7 +1,6 @@
-import {usersModel} from '../models/users.model.js'
+import {usersModel} from '../../mongoDB/models/users.model.js'
 
-
-export default class UserManager {
+export default class UsersMongo {
 
     async findUser(email, password) {
         try {
@@ -12,16 +11,17 @@ export default class UserManager {
         }
     }
 
+    //retorna un usuario 
     async findUserById(_id) {
         try {
             const user = await usersModel.findById(_id)
-            // .populate('cart').lean()
             return user
         } catch (error) {
             console.log(error)
         }
     }
 
+    //retorna un usuario con el detalle del carrito
     async findOneUser(_id) {
         try {
             const user = await usersModel.findById(_id).populate('cart').lean()

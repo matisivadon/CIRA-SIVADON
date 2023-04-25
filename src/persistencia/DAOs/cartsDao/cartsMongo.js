@@ -1,10 +1,10 @@
-import { cartsModel } from "../models/carts.model.js"
+import { cartsModel } from "../../mongoDB/models/carts.model.js"
 
-export default class CartManager {
+export default class CartMongo {
 
     async getCart(_id) {
         try {
-            const carts = await cartsModel.find(_id)
+            const carts = await cartsModel.find({_id})
             return carts
         } catch (error) {
             console.log(error)

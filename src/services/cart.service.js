@@ -1,10 +1,10 @@
-import CartManager from "../DAL/mongoManagers/cart-manager.js"
+import CartMongo from "../persistencia/DAOs/cartsDao/cartsMongo.js"
 
-const cartManager = new CartManager()
+const cartManager = new CartMongo()
 
-export async function getCart() {
+export async function getCart(_id) {
     try {
-        const cart = await cartManager.getCart()
+        const cart = await cartManager.getCart(_id)
         return cart
     } catch (error) {
         return error

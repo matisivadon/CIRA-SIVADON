@@ -18,11 +18,15 @@ export function isLogged(req, res, next) {
 }
 
 export function isAdmin(req, res, next) {
+    if(req.session.isAdmin === undefined) {
+        res.json({ message: 'No ha iniciado sesion' })
+    } else {
         if (req.session.isAdmin) {
             next()
         } else {
             res.json({ message: 'No esta autorizado a realizar esta tarea' })
         }
+    }    
 }
 
 

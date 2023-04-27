@@ -1,4 +1,7 @@
 import { getProducts, getProductById, addProducts, updateProduct, deleteProduct } from "../services/products.service.js"
+import { generateProductErrorInfo } from "../services/errors/info.js"
+import CustomError from "../services/errors/CustomError.js"
+// import EErrors from "../services/errors/enum.js"
 
 //views router
 export async function getAllProducts(req, res) {
@@ -50,15 +53,20 @@ export async function getAProductById(req, res){
 
 export async function addAProduct(req, res) {
     const {title, description, code, price, status, stock, category, image, size} = req.body
-    try {    
-        if(!title || !description || !code || !price || !status || !stock || !category || !image || !size) {
-            res.json({message:'Debe completar todos los datos'})
-        } else {
+        // if(!title || !description || !code || !price || !status || !stock || !category || !image || !size) {
+            CustomError.createError({
+                name: 'Product Error',
+                cause: generateProductErrorInfo({title, description, code, price, status, stock, category, image, size}),
+                message: 'Error al intentar crear el producto',
+                code: EErrors.INVALID_TYPES_ERROR
+            })
+            // res.json({message:'Debe completar todos los datos'})
+        // }
+        try {
             const product = await addProducts({title, description, code, price, status, stock, category, image, size})
             res.json({message:'producto agregado con éxito',product: product})
-        }
-    } catch (error) {
-        return error
+        }   catch (error) {
+            return error
     }
 }
 

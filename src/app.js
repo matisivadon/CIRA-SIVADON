@@ -14,6 +14,8 @@ import passport from 'passport'
 import config from './config.js'
 import './passport/passportStrategies.js'
 import cors from 'cors'
+import mockingsRouter from './routes/mocking.router.js'
+import {errorMiddleware} from './middlewares/errors/index.js'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
 
@@ -57,6 +59,10 @@ app.use('/api/sessions', sessionsRouter)
 app.use('/chat', chatRouter)
 app.use('/', viewsRouter)
 app.use('/users', usersRouter)
+app.use('/api/mockingproducts', mockingsRouter)
+
+//middleware
+app.use(errorMiddleware)
 
 
 app.listen(PORT, () => {

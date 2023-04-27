@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "node-sass --include-path sass ./src/public/sass/index.scss ./src/public/css/style.css -w",
-    "start": "nodemon src/app.js"
+    "start": "nodemon src/app.js",
+    "test": "node src/test/login.test.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "node-sass": "^7.0.1"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "bcrypt": "^5.1.0",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",

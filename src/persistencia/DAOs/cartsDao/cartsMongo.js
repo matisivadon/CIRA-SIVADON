@@ -30,10 +30,6 @@ export default class CartMongo {
     }
 
     async addProductToCart(cid, _id) {
-        try {
-            if (!cid) {
-                return 'Carrito no encontado'
-            } else {
                 const cart = await cartsModel.findById(cid)
                 const productIndex = cart.products.findIndex(product => product.product.toString() === _id)
                 if (productIndex >= 0) {
@@ -45,11 +41,6 @@ export default class CartMongo {
                     cart.save()
                     return cart
                 }
-            } 
-            
-        }   catch (error) {
-            console.log(error);
-        }
     }
 
 

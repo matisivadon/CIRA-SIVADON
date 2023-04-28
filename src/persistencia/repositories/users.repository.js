@@ -9,9 +9,6 @@ export default class UsersRepository {
     async createUser(user) {
         try {
             const userDBDTO = new UsersDBDTO(user)
-            if(UsersDBDTO.email === 'adminCoder@coder.com') {
-                UsersDBDTO.role = 'admin'
-            }
             const userDao = await this.dao.createUser(userDBDTO)
             return userDao
         } catch (error) {

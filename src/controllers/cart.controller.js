@@ -1,5 +1,9 @@
 import { getCart, getCartById, addCart, addProductToCart, updateCart, updateQuantity, deleteProductFromCart, deleteCart} from "../services/cart.service.js"
 import { findUserById } from "../services/users.service.js"
+import { getProductById } from "../services/products.service.js"
+import CustomError from "../services/errors/CustomError.js"
+import {ErrorsName, ErrorsMessage} from '../services/errors/enum.js'
+import { generateCartErrorInfo } from "../services/errors/cause.js"
 
 //views router
 export async function getACartById(req, res) {
@@ -35,13 +39,24 @@ export async function getOneCart(req,res) {
     }
 }
 
-export async function addAProductToCart(req,res) {
+export async function addAProductToCart(req,res, next) {
     const { cid, pid } = req.params
     try {
-        const cart = await addProductToCart(cid, pid)
-        res.json({message:'Producto agregado con éxito', carrito: cart})
+        const productId = await getProductById(pid)
+        const cartId = await getCartById(cid)
+
+        if(!productId || !cartId) {
+            CustomError.createCustomError({
+                name: ErrorsName.CART_ERROR_ADD,
+                message: ErrorsMessage.CART_ERROR_ADD,
+                cause: generateCartErrorInfo()
+            })
+        } else {
+            const cart = await addProductToCart(cid, pid)
+            res.json({message:'Producto agregado con éxito', carrito: cart})
+        }
     } catch (error) {
-        return error
+        next(error)
     }
 }
 

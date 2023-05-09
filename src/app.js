@@ -10,6 +10,7 @@ import chatRouter from './routes/chat.router.js'
 import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
 import sessionsRouter from './routes/sessions.router.js'
+import loggerTest from './routes/loggerTest.router.js'
 import passport from 'passport'
 import config from './config.js'
 import './passport/passportStrategies.js'
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static(__dirname+'/public'))
 app.use(cookieParser())
 app.use(cors({origin:'http://127.0.0.1:5500', methods:['GET', 'POST', 'PUT', 'DELETE']}))
+
 
 //passport
 app.use(passport.initialize())
@@ -60,6 +62,7 @@ app.use('/chat', chatRouter)
 app.use('/', viewsRouter)
 app.use('/users', usersRouter)
 app.use('/api/mockingproducts', mockingsRouter)
+app.use('/loggerTest', loggerTest)
 
 //middleware
 app.use(errorMiddleware)

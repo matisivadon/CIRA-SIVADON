@@ -3,6 +3,7 @@ import { compareHashedData } from '../utils/bcrypt.utils.js'
 import CustomError from '../services/errors/CustomError.js'
 import { ErrorsName, ErrorsMessage} from '../services/errors/enum.js'
 import { generateUserErrorInfo } from '../services/errors/cause.js'
+import logger from '../utils/logger.js'
 
 
 //users router
@@ -22,12 +23,13 @@ export async function findAllUsers(req, res) {
                 } else {
                     req.session.isAdmin = false
                 }
+                logger.info(user[0].role)
                return res.json({message:'Usuario logueado', user})
             }
         }
         return res.json({message:'Usuario o contraseña incorrecta'})
     } catch (error) {
-        res.status(500).json({ error })
+        logger.fatal(error)
     }
 }
 
@@ -51,6 +53,7 @@ export async function createAUser(req, res, next) {
                     role = 'admin';
                 }
                 const newUser = await createUser({...req.body, role});
+                logger.info(role)
                 return res.json({message:'Usuario registrado con éxito', newUser})
             }
         }

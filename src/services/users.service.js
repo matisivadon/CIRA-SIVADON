@@ -43,9 +43,9 @@ export async function createUser(user) {
     }
 }
 
-export async function updateUser(_id, objUser) {
+export async function updateUser(uid, objUser) {
     try {
-        const user = await userManager.updateUser(_id, objUser)
+        const user = await userManager.updateUser(uid, objUser)
         return user
     } catch (error) {
         return error

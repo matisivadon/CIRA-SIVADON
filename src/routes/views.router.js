@@ -38,6 +38,19 @@ router.get('/errorLogin', (req, res) => {
     res.render('errorLogin')
 })
 
+router.get('/olvidemicontrasena', (req, res) => {
+    res.render('forgotpass')
+})
+
+router.get('/restablecercontrasena', (req, res) => {
+    const { token } = req.query
+    res.render('restablecerpass', { token })
+})
+
+router.get('/expiretoken', (req, res) => {
+    res.render('expiretoken')
+})
+
 
 // /LOGIN Y REGISTRO CON GITHUB
 

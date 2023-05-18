@@ -52,7 +52,7 @@ export async function getAProductById(req, res) {
 }
 
 export async function addAProduct(req, res, next) {
-    const { title, description, price, status, stock, category, image, size } = req.body
+    const { title, description, price, status, stock, category, image, size} = req.body
     try {
         if (!title || !description || !price || !status || !stock || !category || !image || !size) {
             CustomError.createCustomError({
@@ -71,7 +71,11 @@ export async function addAProduct(req, res, next) {
                 return code
         }
             let code = generateCode(10)
-            const product = await addProducts({ title, description, code, price, status, stock, category, image, size})
+            let owner = 'admin'
+            if(req.session.isPremium) {
+                owner = req.session.email
+            }
+            const product = await addProducts({ title, description, code, price, status, stock, category, image, size, owner})
             res.json({ message: 'producto agregado con éxito', product: product })
         }
     } catch (error) {
@@ -83,8 +87,17 @@ export async function updateAProduct(req, res) {
     const { pid } = req.params
     const change = req.body
     try {
-        const product = await updateProduct(pid, change)
-        res.json({ message: 'producto actualizado con éxito', product })
+        const product = await getProductById(pid)
+        if(req.session.isPremium && req.session.email == product.owner) {
+            const updateProductByUserPremium = await updateProduct(pid, change)
+            return res.json({ message: 'Su producto ha sido actualizado con éxito', updateProductByUserPremium })
+        } else if(req.session.isAdmin) {
+            const updateProductByAdmin = await updateProduct(pid, change)
+            return res.json({ message: 'Producto actualizado con éxito por el administrador', updateProductByAdmin })
+        } else {
+            res.json({message: 'No esta autorizado a realizar esta operación'})
+        }
+        
     } catch (error) {
         return error
     }
@@ -93,8 +106,17 @@ export async function updateAProduct(req, res) {
 export async function deleteAProduct(req, res) {
     const { pid } = req.params
     try {
-        const product = await deleteProduct(pid)
-        res.json({ message: 'producto eliminado con éxito', product })
+        const product = await getProductById(pid)
+        if(req.session.isPremium && req.session.email == product.owner) {
+            const deleteProductByUserPremium = await deleteProduct(pid)
+            return res.json({ message: 'Su producto ha sido eliminado con éxito', deleteProductByUserPremium })
+        } else if(req.session.isAdmin) {
+            const deleteProductByAdmin = await deleteProduct(pid)
+            return res.json({ message: 'Producto eliminado con éxito por el administrador', deleteProductByAdmin })
+        } else {
+            res.json({message: 'No esta autorizado a realizar esta operación'})
+        }
+
     } catch (error) {
         return error
     }

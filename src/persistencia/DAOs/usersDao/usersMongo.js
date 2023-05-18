@@ -40,12 +40,12 @@ export default class UsersMongo {
         }
     }
 
-    async updateUser(_id, objUser) {
+    async updateUser(uid, objUser) {
         try {
-            const user = await usersModel.updateOne({_id}, {$set:objUser}, {new:true})
+            const user = await usersModel.findByIdAndUpdate({_id:uid}, {$set:objUser}, {new:true})
             return user
         } catch (error) {
             console.log(error)
         }
-    }        
+    }
 }

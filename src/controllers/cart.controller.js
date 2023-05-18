@@ -42,18 +42,24 @@ export async function getOneCart(req,res) {
 export async function addAProductToCart(req,res, next) {
     const { cid, pid } = req.params
     try {
-        const productId = await getProductById(pid)
+        const product = await getProductById(pid)
         const cartId = await getCartById(cid)
 
-        if(!productId || !cartId) {
+        if(!product || !cartId) {
             CustomError.createCustomError({
                 name: ErrorsName.CART_ERROR_ADD,
                 message: ErrorsMessage.CART_ERROR_ADD,
                 cause: generateCartErrorInfo()
             })
         } else {
-            const cart = await addProductToCart(cid, pid)
-            res.json({message:'Producto agregado con éxito', carrito: cart})
+            if(req.session.email == product.owner) {
+                return res.json({message:'No esta autorizado a realizar esta operación'})
+            } else {
+                console.log('session', req.session.email);
+                console.log('product', product.owner);
+                const cart = await addProductToCart(cid, pid)
+                res.json({message:'Producto agregado con éxito', carrito: cart})
+            }
         }
     } catch (error) {
         next(error)

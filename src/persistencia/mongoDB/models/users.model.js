@@ -37,7 +37,8 @@ const usersSchema = new mongoose.Schema({
         default: []
     },
     role: {
-        type: String
+        type: String,
+        required: true
     }
 })
 export const usersModel = mongoose.model('users', usersSchema)

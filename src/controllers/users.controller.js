@@ -1,4 +1,4 @@
-import { findUser, createUser, findOneUser } from '../services/users.service.js'
+import { findUser, createUser, findOneUser, updateUser } from '../services/users.service.js'
 import { compareHashedData } from '../utils/bcrypt.utils.js'
 import CustomError from '../services/errors/CustomError.js'
 import { ErrorsName, ErrorsMessage} from '../services/errors/enum.js'
@@ -18,12 +18,19 @@ export async function findAllUsers(req, res) {
                     req.session[key] = req.body[key]
                 }
                 req.session.logged = true
+                req.session.isPremium = true
+                req.session.isAdmin = false
+
+                if(user[0].role && user[0].role === 'user') {
+                    req.session.isPremium = false
+                }
+
                 if (user[0].role && user[0].role === 'admin') {
                     req.session.isAdmin = true
-                } else {
-                    req.session.isAdmin = false
                 }
+
                 logger.info(user[0].role)
+                console.log(req.session);
                return res.json({message:'Usuario logueado', user})
             }
         }
@@ -34,32 +41,38 @@ export async function findAllUsers(req, res) {
 }
 
 export async function createAUser(req, res, next) {
-    const { first_name, last_name, email, age, password } = req.body
+    const { first_name, last_name, email, age, password, role } = req.body
     try {
-    if (!first_name || !last_name || !email || !age || !password) {
+    if (!first_name || !last_name || !email || !age || !password || !role) {
         CustomError.createCustomError({
             name: ErrorsName.USER_ERROR_REGISTER,
             message: ErrorsMessage.USER_ERROR_REGISTER,
-            cause: generateUserErrorInfo({first_name, last_name, email, age, password}),
+            cause: generateUserErrorInfo({first_name, last_name, email, age, password, role}),
         })
     } else {
-
             const userExists = await findUser({ email })
             if (userExists.length !== 0) {
                 return res.json({message:'Ya existe un usuario con este email'})
             } else {
-                let role = 'user';
-                if (email === 'adminCoder@coder.com' && password === 'adminCod3r123') {
-                    role = 'admin';
-                }
-                const newUser = await createUser({...req.body, role});
-                logger.info(role)
+                const newUser = await createUser({...req.body});
+                logger.info(newUser)
                 return res.json({message:'Usuario registrado con éxito', newUser})
             }
         }
      } catch (error) {
             next(error)
         }
+}
+
+export async function changeUserRole(req, res) {
+    const {uid} = req.params
+    const role = req.body
+    try {
+        const userChange = await updateUser(uid, role)
+        res.json({message:'Role actualizado con éxito', userChange})
+    } catch (error) {
+        return error
+    }
 }
 
 

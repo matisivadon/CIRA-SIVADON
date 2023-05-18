@@ -11,7 +11,7 @@ router.get('/:cid', getOneCart)
 
 router.post('/:cid/purchase', generateATicket)
 
-router.post('/:cid/product/:pid', isUser, addAProductToCart)
+router.post('/:cid/product/:pid', addAProductToCart)
 
 router.put('/:cid', isUser, updateACart)
 

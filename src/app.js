@@ -10,6 +10,7 @@ import chatRouter from './routes/chat.router.js'
 import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
 import sessionsRouter from './routes/sessions.router.js'
+import mailRouter from './routes/mail.router.js'
 import loggerTest from './routes/loggerTest.router.js'
 import passport from 'passport'
 import config from './config.js'
@@ -60,9 +61,10 @@ app.use('/api/carts', cartsRouter)
 app.use('/api/sessions', sessionsRouter)
 app.use('/chat', chatRouter)
 app.use('/', viewsRouter)
-app.use('/users', usersRouter)
+app.use('/api/users', usersRouter)
 app.use('/api/mockingproducts', mockingsRouter)
 app.use('/loggerTest', loggerTest)
+app.use('/mail', mailRouter)
 
 //middleware
 app.use(errorMiddleware)

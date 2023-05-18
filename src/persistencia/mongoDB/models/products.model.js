@@ -38,8 +38,11 @@ const productsSchema = new mongoose.Schema({
     size: {
         type:String,
         required: true
+    },
+    owner: {
+        type: String,
+        required: true,
     }
-
 })
 
 productsSchema.plugin(mongoosePaginate)

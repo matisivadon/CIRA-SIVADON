@@ -116,7 +116,6 @@ export async function deleteAProduct(req, res) {
         } else {
             res.json({message: 'No esta autorizado a realizar esta operación'})
         }
-
     } catch (error) {
         return error
     }

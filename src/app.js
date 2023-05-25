@@ -18,6 +18,8 @@ import './passport/passportStrategies.js'
 import cors from 'cors'
 import mockingsRouter from './routes/mocking.router.js'
 import {errorMiddleware} from './middlewares/errors/index.js'
+import swaggerUi from 'swagger-ui-express'
+import { swaggerSetup } from './swaggerSpecs.js'
 // import { Server } from 'socket.io'
 // import { chatModel } from './dao/models/chat.model.js'
 
@@ -65,6 +67,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/mockingproducts', mockingsRouter)
 app.use('/loggerTest', loggerTest)
 app.use('/mail', mailRouter)
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup))
 
 //middleware
 app.use(errorMiddleware)

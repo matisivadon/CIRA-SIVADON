@@ -55,10 +55,10 @@ export default class CartMongo {
         }
     }
 
-    async updateQuantity(cid, _id, quantity) {
+    async updateQuantity(cid, pid, quantity) {
         try {
             const cart = await cartsModel.findById(cid)
-            const productIndex = cart.products.findIndex(product => product.product.toString() === _id)
+            const productIndex = cart.products.findIndex(product => product.product.toString() === pid)
             if (productIndex >= 0) {
                 cart.products[productIndex].quantity += quantity
                 cart.save()

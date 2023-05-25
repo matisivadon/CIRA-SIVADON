@@ -55,8 +55,6 @@ export async function addAProductToCart(req,res, next) {
             if(req.session.email == product.owner) {
                 return res.json({message:'No esta autorizado a realizar esta operación'})
             } else {
-                console.log('session', req.session.email);
-                console.log('product', product.owner);
                 const cart = await addProductToCart(cid, pid)
                 res.json({message:'Producto agregado con éxito', carrito: cart})
             }
@@ -78,10 +76,10 @@ export async function updateACart(req, res) {
 }
 
 export async function updateQuantityFromCart(req, res) {
-    const {cid, _id} = req.params
+    const {cid, pid} = req.params
     const {quantity} = req.body
     try {
-        const cart = await updateQuantity(cid, _id, quantity)
+        const cart = await updateQuantity(cid, pid, quantity)
         res.json({message:'Carrito actualizado con éxito', carrito: cart})
     } catch (error) {
         return error

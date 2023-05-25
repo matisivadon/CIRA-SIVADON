@@ -15,10 +15,11 @@ router.post('/:cid/product/:pid', addAProductToCart)
 
 router.put('/:cid', isUser, updateACart)
 
-router.put('/:cid/product/:_id', isUser, updateQuantityFromCart)
+router.put('/:cid/product/:pid', isUser, updateQuantityFromCart)
 
 router.delete('/:cid/product/:pid', isUser, deleteAProductFromCart)
 
 router.delete('/:cid', isUser, deleteACart)
+
 
 export default router

@@ -47,9 +47,9 @@ export async function updateCart(cid, _id, infoProduct) {
     }
 }
 
-export async function updateQuantity(cid, _id, quantity) {
+export async function updateQuantity(cid, pid, quantity) {
     try {
-        const cart = await cartManager.updateQuantity(cid, _id, quantity)
+        const cart = await cartManager.updateQuantity(cid, pid, quantity)
         return cart
     } catch (error) {
         return error

@@ -28,25 +28,12 @@ export default class TicketManager {
         return purchaserEmail
     }
 
-    // async amount(cid) {
-    //     const cart = await getCart(cid)
-    //     console.log(cart.products)
-    //     const totalCartValue = cart.reduce((total, item) => {
-    //         const productsTotal = item.products.reduce((productsTotal, product) => {
-    //           return productsTotal + (product.product.price * product.quantity)
-    //         }, 0)
-    //         return total + productsTotal
-    //       }, 0)
-    //     return totalCartValue  
-    // }
-
     async amount(cid) {
         const cart = await getCart(cid)
 
         let totalCartValue = 0
         let unprocessableProductsId = []
 
-    
         for (const item of cart) {
             for (const product of item.products) {
                 const productId = product.product.id
@@ -62,8 +49,6 @@ export default class TicketManager {
                     // Si hay suficiente stock, restarlo del stock del producto
                     const updatedProduct = await updateProduct(productId, { stock: stock - quantity })
                     await deleteProductFromCart(cid, productId)
-                    // cart.products.push(updatedProduct)
-                    // const updateQuantityCart = await updateQuantity(cid, productId, {stock: stock - quantity})
                     totalCartValue += updatedProduct.price * quantity
                 }
             }

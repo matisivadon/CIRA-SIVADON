@@ -3,7 +3,8 @@ export const generateUserErrorInfo = (user) => {
     last_name: Se esperaba un string, se recibió un ${typeof user.last_name}
     email: Se esperaba un string, se recibió un ${typeof user.email}
     age: Se esperaba un number, se recibió un ${typeof user.age}
-    password: Se esperaba un string, se recibió un ${typeof user.password}`
+    password: Se esperaba un string, se recibió un ${typeof user.password}
+    role: Se esperaba un string, se recibió un ${typeof user.role}`
 }
 
 export const generateProductErrorInfo = (product) => {

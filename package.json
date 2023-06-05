@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "node-sass --include-path sass ./src/public/sass/index.scss ./src/public/css/style.css -w",
-    "start": "nodemon src/app.js",
-    "test": "node src/test/login.test.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "mocha -t 10000 test/supertest.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,10 @@
   },
   "homepage": "https://github.com/matisivadon/CIRA-SIVADON#readme",
   "devDependencies": {
-    "node-sass": "^7.0.1"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "node-sass": "^7.0.1",
+    "supertest": "^6.3.3"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",

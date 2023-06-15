@@ -1,4 +1,4 @@
-import { findUser, createUser, findOneUser, updateUser } from '../services/users.service.js'
+import { findUser, createUser, findOneUser, updateUser, findUserById } from '../services/users.service.js'
 import { compareHashedData } from '../utils/bcrypt.utils.js'
 import CustomError from '../services/errors/CustomError.js'
 import { ErrorsName, ErrorsMessage} from '../services/errors/enum.js'
@@ -30,7 +30,8 @@ export async function findAllUsers(req, res) {
                 }
 
                 logger.info(user[0].role)
-                console.log(req.session);
+                user[0].last_connection = new Date().toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" })
+                user[0].save()
                return res.json({message:'Usuario logueado', user})
             }
         }
@@ -68,13 +69,32 @@ export async function changeUserRole(req, res) {
     const {uid} = req.params
     const role = req.body
     try {
-        const userChange = await updateUser(uid, role)
-        res.json({message:'Role actualizado con éxito', userChange})
+        const user = await findUserById(uid)
+        const mandatoryDocuments = ['identificacion', 'address', 'account']
+        if(mandatoryDocuments.length !== user.documents.length) {
+            res.json({message:'Debe cargar todos los documentos solicitados'})
+        } else {
+            const userChange = await updateUser(uid, role)
+            res.json({message:'Role actualizado con éxito', userChange})
+        }
     } catch (error) {
         return error
     }
 }
 
+export async function documentUploader(req, res){
+    const {uid} = req.params
+    const {name, reference} = req.files
+    try {
+        const user = await findUserById(uid)
+        console.log(req.documents);
+        user.documents.push({...req.body})
+        user.save()
+        return res.json({message:'Documento agregado con éxito', user})
+    } catch (error) {
+        return error
+    }
+}
 
 
 //sessions router

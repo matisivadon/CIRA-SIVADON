@@ -30,8 +30,8 @@ const usersSchema = new mongoose.Schema({
     cart: {
         type: [
             {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'cart'    
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'cart'    
             }
         ],
         default: []
@@ -39,6 +39,18 @@ const usersSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true
+    },
+    documents: {
+        type: [
+            {
+                name: String,
+                reference: String
+            }
+        ]
+    },
+    last_connection: {
+        type: String,
+        default: ' '
     }
 })
 export const usersModel = mongoose.model('users', usersSchema)

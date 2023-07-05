@@ -1,7 +1,7 @@
 import passport from "passport"
 import { Strategy as GithubStrategy } from "passport-github2"
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
-import {findOneUser, findUserById, createUser} from '../services/users.service.js'
+import {findOneUser, findUserById, createUser, findUser} from '../services/users.service.js'
 
 
 
@@ -13,7 +13,6 @@ passport.use('github', new GithubStrategy({
     callbackURL: 'http://localhost:8080/github',
 }, async (accessToken, refreshToken, profile, done) => {
     const user = await findOneUser({ email: profile._json.email })
-    console.log(profile);
     if (!user) {
         const newUser = {
             first_name: profile._json.name.split(' ')[0],

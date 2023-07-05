@@ -1,6 +1,6 @@
 import TicketMongo from "../persistencia/DAOs/ticketsDao/ticketsMongo.js"
 import { findOneUser } from "./users.service.js"
-import { getCart, updateQuantity, deleteProductFromCart } from "./cart.service.js"
+import { getCart, deleteProductFromCart } from "./cart.service.js"
 import { updateProduct } from "./products.service.js"
 
 const ticketsManager = new TicketMongo()

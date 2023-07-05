@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
             cb(null,__dirname + '/public/files/profiles')
         } else if(file.fieldname === 'productImage') {
             cb(null, __dirname + '/public/files/products')
-        } else if (file.fieldname === 'document') {
+        } else if (file.fieldname === 'identification' || file.fieldname === 'address' || file.fieldname === 'account') {
             cb(null, __dirname + '/public/files/documents')
         }
     },

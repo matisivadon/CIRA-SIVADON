@@ -33,6 +33,15 @@ export async function findOneUser(_id) {
     }
 }
 
+export async function findAll(){
+    try {
+        const users = await usersDao.findAllUsers()
+        return users
+    } catch (error) {
+        return error
+    }
+}
+
 export async function createUser(user) {
     try {
         const hashPassword = await hashData(user.password)
@@ -46,6 +55,15 @@ export async function createUser(user) {
 export async function updateUser(uid, objUser) {
     try {
         const user = await userManager.updateUser(uid, objUser)
+        return user
+    } catch (error) {
+        return error
+    }
+}
+
+export async function deleteUser(condition){
+    try {
+        const user = await userManager.deleteUser(condition)
         return user
     } catch (error) {
         return error

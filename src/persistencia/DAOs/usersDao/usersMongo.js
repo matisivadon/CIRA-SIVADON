@@ -31,6 +31,15 @@ export default class UsersMongo {
         }
     }
 
+    async findAllUsers(){
+        try {
+            const users = await usersModel.find()
+            return users
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     async createUser(user) {
         try {
             const newUser = await usersModel.create(user)
@@ -48,4 +57,14 @@ export default class UsersMongo {
             console.log(error)
         }
     }
+
+    async deleteUser(condition){
+        try {
+            const users = await usersModel.deleteMany(condition)
+            return users
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 }

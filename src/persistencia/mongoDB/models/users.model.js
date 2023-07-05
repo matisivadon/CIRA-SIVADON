@@ -38,15 +38,11 @@ const usersSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        required: true
+        required: true,
+        default: 'user'
     },
     documents: {
-        type: [
-            {
-                name: String,
-                reference: String
-            }
-        ]
+        type: []
     },
     last_connection: {
         type: String,

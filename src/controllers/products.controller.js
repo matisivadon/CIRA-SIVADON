@@ -2,6 +2,7 @@ import { getProducts, getProductById, addProducts, updateProduct, deleteProduct 
 import { generateProductErrorInfo } from '../services/errors/cause.js'
 import CustomError from "../services/errors/CustomError.js"
 import { ErrorsName, ErrorsMessage } from "../services/errors/enum.js"
+import { transporter } from "../messages/nodemailer.js"
 
 //views router
 export async function getAllProducts(req, res) {
@@ -109,6 +110,12 @@ export async function deleteAProduct(req, res) {
         const product = await getProductById(pid)
         if(req.session.isPremium && req.session.email == product.owner) {
             const deleteProductByUserPremium = await deleteProduct(pid)
+            await transporter.sendMail({
+                from: 'CIRA',
+                to: product.owner,
+                subject: 'Producto eliminado de nuestra base de datos',
+                html: `<h2>Su producto ${product.description} ha sido eliminado</h2>`
+            })
             return res.json({ message: 'Su producto ha sido eliminado con éxito', deleteProductByUserPremium })
         } else if(req.session.isAdmin) {
             const deleteProductByAdmin = await deleteProduct(pid)
